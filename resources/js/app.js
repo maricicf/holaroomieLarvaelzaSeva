@@ -1,6 +1,7 @@
 import './bootstrap';
 import '../css/app.css';
-
+import '@/assets/libs/@mdi/font/css/materialdesignicons.min.css';
+import '@/assets/libs/@iconscout/unicons/css/line.css'
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
