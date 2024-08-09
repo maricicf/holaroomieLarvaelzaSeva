@@ -1,6 +1,6 @@
 <template>
     <nav id="topnav" class="defaultscroll is-sticky">
-        <div class="relative flex" :class="container">
+        <div class="relative flex justify-between" :class="container">
             <!-- Logo container-->
             <Link v-if="props.logoLight" class="logo" href="/">
                 <span class="inline-block dark:hidden">
