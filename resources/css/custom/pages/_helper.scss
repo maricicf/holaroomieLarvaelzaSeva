@@ -15,7 +15,7 @@
         .spinner {
             @apply size-10 relative my-[100px] mx-auto;
             .double-bounce1, .double-bounce2 {
-                @apply w-full h-full rounded-full bg-green-600/60 absolute top-0 start-0;
+                @apply w-full h-full rounded-full bg-blue-600/60 absolute top-0 start-0;
                 animation: sk-bounce 2.0s infinite ease-in-out;
             }
             .double-bounce2 {
@@ -26,9 +26,9 @@
 }
 
 @keyframes sk-bounce {
-    0%, 100% { 
+    0%, 100% {
       transform: scale(0.0);
-    } 50% { 
+    } 50% {
       transform: scale(1.0);
     }
 }
@@ -65,7 +65,7 @@
 /*===============================*/
 /* Tobii Lighbox */
 .tobii>button.tobii__close svg,
-.tobii>button.tobii__prev svg, 
+.tobii>button.tobii__prev svg,
 .tobii>button.tobii__next svg {
     @apply h-9 w-auto;
 }
@@ -87,21 +87,21 @@
 }
 
 .vs--searchable .vs__dropdown-toggle {
-    @apply filter-search-form form-select relative flex h-[60px] w-full bg-gray-50 dark:bg-slate-800 border-0 focus:ring-0 outline-none text-slate-400 p-0 -ms-1;  
+    @apply filter-search-form form-select relative flex h-[60px] w-full bg-gray-50 dark:bg-slate-800 border-0 focus:ring-0 outline-none text-slate-400 p-0 -ms-1;
 }
 .form-select{
     @apply cursor-pointer;
 }
 
 .vs__clear {
- @apply hidden; 
-} 
+ @apply hidden;
+}
 .vs__selected {
     @apply dark:text-slate-400;
 }
 
 .vs__open-indicator {
-    @apply hidden; 
+    @apply hidden;
    }
 
 .vs__search {
@@ -109,7 +109,7 @@
 }
 
 .vs__dropdown-menu {
-    @apply  dark:bg-slate-800; 
+    @apply  dark:bg-slate-800;
 }
 
 .vs--single .vs__selected{

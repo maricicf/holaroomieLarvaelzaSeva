@@ -13,7 +13,7 @@
 
                     <ul class="list-none md:text-end text-center">
                         <li v-for="item in social" :key="item" class="inline me-1"><a href=""
-                                class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600"><i
+                                class="btn btn-icon btn-sm text-gray-400 hover:text-white border !border-gray-800 rounded-md hover:border-blue-600 dark:hover:border-blue-600 hover:bg-blue-600 dark:hover:bg-blue-600"><i
                                     :data-feather="item" class="size-4"></i></a></li>
                     </ul><!--end icon-->
                 </div><!--end grid-->

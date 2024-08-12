@@ -44,7 +44,7 @@
                                 Latin words. This ancient dummy text is also incomprehensible, but it imitates the
                                 rhythm of most European languages in Latin script.</p>
                             <p
-                                class="text-slate-400 italic border-x-4 border-green-600 rounded-ss-xl rounded-ee-xl mt-3 p-3">
+                                class="text-slate-400 italic border-x-4 border-blue-600 rounded-ss-xl rounded-ee-xl mt-3 p-3">
                                 " There are many variations of passages of Lorem Ipsum available, but the majority have
                                 suffered alteration in some form, by injected humour, or randomised words which don't
                                 look even slightly believable. "</p>
@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <button type="submit" id="submit" name="send"
-                                class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md w-full">Send
+                                class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white rounded-md w-full">Send
                                 Message</button>
                         </form>
                     </div> -->

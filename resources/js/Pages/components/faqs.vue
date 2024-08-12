@@ -25,7 +25,7 @@
                         class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
                         <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
                             <button type="button " @click="isActive = isActive === item.id ? null : item.id"
-                                :class="item.id === isActive ? 'bg-gray-50 dark:bg-slate-800 text-green-600' : ''"
+                                :class="item.id === isActive ? 'bg-gray-50 dark:bg-slate-800 text-blue-600' : ''"
                                 class=" flex justify-between items-center p-5 w-full font-medium text-start">
                                 <span>{{ item.title }}</span>
                                 <svg data-accordion-icon class="size-4  shrink-0"
@@ -54,7 +54,7 @@
                         class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
                         <h2 class="text-base font-semibold" id="accordion-collapse-heading-5">
                             <button type="button" @click="isActive2 = isActive2 === item.id ? null : item.id"
-                                :class="item.id === isActive2 ? 'bg-gray-50 dark:bg-slate-800 text-green-600' : ''"
+                                :class="item.id === isActive2 ? 'bg-gray-50 dark:bg-slate-800 text-blue-600' : ''"
                                 class="flex justify-between items-center p-5 w-full font-medium text-start">
                                 <span>{{ item.title }}</span>
                                 <svg data-accordion-icon class="size-4  shrink-0"
@@ -85,7 +85,7 @@
                         class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
                         <h2 class="text-base font-semibold" id="accordion-collapse-heading-9">
                             <button type="button" @click="activeIndex3 = activeIndex3 === item.id ? null : item.id"
-                                :class="item.id === activeIndex3 ? 'bg-gray-50 dark:bg-slate-800 text-green-600' : ''"
+                                :class="item.id === activeIndex3 ? 'bg-gray-50 dark:bg-slate-800 text-blue-600' : ''"
                                 class="flex justify-between items-center p-5 w-full font-medium text-start">
                                 <span>{{ item.title }}</span>
                                 <svg data-accordion-icon class="size-4 shrink-0"
@@ -114,7 +114,7 @@
                         class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
                         <h2 class="text-base font-semibold" id="accordion-collapse-heading-13">
                             <button type="button" @click="activeIndex4 = activeIndex4 === item.id ? null : item.id"
-                                :class="item.id === activeIndex4 ? 'bg-gray-50 dark:bg-slate-800 text-green-600' : ''"
+                                :class="item.id === activeIndex4 ? 'bg-gray-50 dark:bg-slate-800 text-blue-600' : ''"
                                 class="flex justify-between items-center p-5 w-full font-medium text-start">
                                 <span>{{ item.title }}</span>
                                 <svg data-accordion-icon class="size-4  shrink-0"

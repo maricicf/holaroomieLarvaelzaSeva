@@ -1,49 +1,42 @@
 <template>
     <div>
-        <navbar :container="'container'" :navLight="'justify-end'" />
+        <navbar :container="'container'" :navLight="'justify-end'"/>
         <!-- Start -->
         <section class="relative md:py-24 pt-24 pb-16">
             <div class="container relative">
                 <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                     <div class="lg:col-span-8 md:col-span-7">
                         <div v-if="data?.image" class="grid grid-cols-1 relative">
-                            <img :src="data.image" class="img-fluid rounded" alt="" />
+                            <img :src="data.image" class="img-fluid rounded" alt=""/>
                         </div>
                         <div v-else class="grid grid-cols-1 relative">
                             <div class="tiny-one-item">
-                                <div v-for="item in images" :key="item" class="tiny-slide"><img :src="item"
-                                        class="rounded-md shadow dark:shadow-gray-700" alt=""></div>
+                                <div v-for="item in images" :key="item" class="tiny-slide">
+                                    <img :src="item"
+                                         class="rounded-md shadow dark:shadow-gray-700"
+                                         alt="property"/>
+                                </div>
                             </div>
                         </div><!--end col-->
 
-                        <!-- <div class="grid grid-cols-1 relative">
-                        <div class="tiny-one-item">
-                            <div v-for="item in images" :key="item" class="tiny-slide">
-                                <img :src="item" class="rounded-md shadow dark:shadow-gray-700" alt="">
-                            </div>
-
-
-                        </div>
-                    </div> -->
-
                         <h4 class="text-2xl font-medium mt-6 mb-3">4BHK Luxury Family Home</h4>
                         <span class="text-slate-400 flex items-center"><i data-feather="map-pin"
-                                class="size-5 me-2"></i>
+                                                                          class="size-5 me-2"></i>
                             {{ data?.name ? data?.name : '10765 Hillshire Ave, Baton Rouge, LA 70810, USA' }}</span>
 
                         <ul class="py-6 flex items-center list-none">
                             <li class="flex items-center lg:me-6 me-4">
-                                <i class="uil uil-compress-arrows lg:text-3xl text-2xl me-2 text-green-600"></i>
+                                <i class="uil uil-compress-arrows lg:text-3xl text-2xl me-2 text-blue-600"></i>
                                 <span class="lg:text-xl">8000sqf</span>
                             </li>
 
                             <li class="flex items-center lg:me-6 me-4">
-                                <i class="uil uil-bed-double lg:text-3xl text-2xl me-2 text-green-600"></i>
+                                <i class="uil uil-bed-double lg:text-3xl text-2xl me-2 text-blue-600"></i>
                                 <span class="lg:text-xl">4 Beds</span>
                             </li>
 
                             <li class="flex items-center">
-                                <i class="uil uil-bath lg:text-3xl text-2xl me-2 text-green-600"></i>
+                                <i class="uil uil-bath lg:text-3xl text-2xl me-2 text-blue-600"></i>
                                 <span class="lg:text-xl">4 Baths</span>
                             </li>
                         </ul>
@@ -82,10 +75,10 @@
                                     <h5 class="text-2xl font-medium">Price:</h5>
 
                                     <div class="flex justify-between items-center mt-4">
-                                        <span class="text-xl font-medium">{{ data?.price ? data?.price : "$45" }}</span>
+                                        <span class="text-xl font-medium">{{ data?.price ? data?.price : '$45' }}</span>
 
                                         <span
-                                            class="bg-green-600/10 text-green-600 text-sm px-2.5 py-0.75 rounded h-6">For
+                                            class="bg-blue-600/10 text-blue-600 text-sm px-2.5 py-0.75 rounded h-6">For
                                             Sale</span>
                                     </div>
 
@@ -110,12 +103,12 @@
                                 <div class="flex">
                                     <div class="p-1 w-1/2">
                                         <a href=""
-                                            class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Book
+                                           class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Book
                                             Now</a>
                                     </div>
                                     <div class="p-1 w-1/2">
                                         <a href=""
-                                            class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Offer
+                                           class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Offer
                                             Now</a>
                                     </div>
                                 </div>
@@ -127,9 +120,11 @@
                                     ? Get in touch!</h3>
 
                                 <div class="mt-6">
-                                    <router-link to="/contact"
-                                        class="btn bg-transparent hover:bg-green-600 border border-green-600 text-green-600 hover:text-white rounded-md"><i
-                                            class="uil uil-phone align-middle me-2"></i> Contact us</router-link>
+                                    <Link :href="route('contact')"
+                                          class="btn bg-transparent hover:bg-blue-600 border border-blue-600 text-blue-600 hover:text-white rounded-md">
+                                        <i
+                                            class="uil uil-phone align-middle me-2"></i> Contact us
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -143,19 +138,21 @@
 </template>
 
 <script setup>
-import navbar from '@/components/navbar/navbar.vue'
-import { ref, onMounted, } from 'vue';
-import { tns } from 'tiny-slider/src/tiny-slider';
-import image from '../../assets/images/property/single/1.jpg';
-import image2 from '../../assets/images/property/single/2.jpg';
-import image3 from '../../assets/images/property/single/3.jpg';
-import image4 from '../../assets/images/property/single/4.jpg';
-import image5 from '../../assets/images/property/single/5.jpg'
-import { useRoute } from 'vue-router';
+import navbar from '@/Components/navbar/navbar.vue';
+import {ref, onMounted} from 'vue';
+import {tns} from 'tiny-slider/src/tiny-slider';
+import {Link} from '@inertiajs/inertia-vue3';
+
 const id = ref('');
 const data = ref('');
-const route = useRoute();
-const images = ref([image, image2, image3, image4, image5])
+const images = [
+    '/assets/images/property/single/1.jpg',
+    '/assets/images/property/single/1.jpg',
+    '/assets/images/property/single/2.jpg',
+    '/assets/images/property/single/3.jpg',
+    '/assets/images/property/single/4.jpg',
+    '/assets/images/property/single/5.jpg',
+];
 onMounted(() => {
     tns({
         container: '.tiny-one-item',
@@ -167,7 +164,7 @@ onMounted(() => {
         autoplay: true,
         autoplayButtonOutput: false,
         autoplayTimeout: 3000,
-        navPosition: "bottom",
+        navPosition: 'bottom',
         controlsText: ['<i class="mdi mdi-chevron-left "></i>', '<i class="mdi mdi-chevron-right"></i>'],
         nav: false,
         speed: 400,
@@ -178,142 +175,138 @@ onMounted(() => {
 const datas = ref([
     {
         id: 1,
-        image: require('../../assets/images/property/1.jpg'),
+        image: 'assets/images/property/1.jpg',
         name: '10765 Hillshire Ave, Baton Rouge, LA 70810, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 2,
-        image: require('../../assets/images/property/2.jpg'),
+        image: 'assets/images/property/2.jpg',
         name: '59345 STONEWALL DR, Plaquemine, LA 70764, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 3,
-        image: require('../../assets/images/property/3.jpg'),
+        image: 'assets/images/property/3.jpg',
         name: '3723 SANDBAR DR, Addis, LA 70710, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 4,
-        image: require('../../assets/images/property/4.jpg'),
+        image: 'assets/images/property/4.jpg',
         name: 'Lot 21 ROYAL OAK DR, Prairieville, LA 70769, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 5,
-        image: require('../../assets/images/property/5.jpg'),
+        image: 'assets/images/property/5.jpg',
         name: '710 BOYD DR, Unit #1102, Baton Rouge, LA 70808, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 6,
-        image: require('../../assets/images/property/6.jpg'),
+        image: 'assets/images/property/6.jpg',
         name: '5133 MCLAIN WAY, Baton Rouge, LA 70809, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 7,
-        image: require('../../assets/images/property/7.jpg'),
+        image: 'assets/images/property/7.jpg',
         name: '2141 Fiero Street, Baton Rouge, LA 70808',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 8,
-        image: require('../../assets/images/property/8.jpg'),
+        image: 'assets/images/property/8.jpg',
         name: '9714 Inniswold Estates Ave, Baton Rouge, LA 70809',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 9,
-        image: require('../../assets/images/property/9.jpg'),
+        image: 'assets/images/property/9.jpg',
         name: '1433 Beckenham Dr, Baton Rouge, LA 70808, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 10,
-        image: require('../../assets/images/property/10.jpg'),
+        image: 'assets/images/property/10.jpg',
         name: '1574 Sharlo Ave, Baton Rouge, LA 70820, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 11,
-        image: require('../../assets/images/property/11.jpg'),
+        image: 'assets/images/property/11.jpg',
         name: '2528 BOCAGE LAKE DR, Baton Rouge, LA 70809, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 12,
-        image: require('../../assets/images/property/12.jpg'),
+        image: 'assets/images/property/12.jpg',
         name: '1533 NICHOLSON DR, Baton Rouge, LA 70802, USA',
         sqf: '8000sqf',
         beds: '4 Beds',
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
-])
+]);
 
-onMounted(() => {
-    id.value = route.params.id
-    data.value = datas.value.find((item) => item.id === parseInt(id.value))
-})
 </script>
 
 <style lang="scss" scoped></style>

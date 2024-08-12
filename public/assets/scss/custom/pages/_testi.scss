@@ -24,7 +24,7 @@
     button {
         @apply rounded-full bg-black/20 dark:bg-white/20 transition-all duration-500 ease-in-out border-2 border-white dark:border-slate-900 m-1 p-[2px];
         &.tns-nav-active {
-            @apply bg-green-600 border-green-600;
+            @apply bg-blue-600 border-blue-600;
         }
     }
 }
@@ -36,7 +36,7 @@
         @apply absolute top-2/4 -translate-y-2/4 text-base size-8 rounded-full bg-white dark:bg-slate-900 text-dark dark:text-white border-0 transition-all duration-500 ease-in-out z-10 shadow-md dark:shadow-gray-700;
 
         &:hover {
-            @apply bg-green-600 text-white;
+            @apply bg-blue-600 text-white;
         }
     }
     button[data-controls="prev"] {

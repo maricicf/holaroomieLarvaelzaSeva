@@ -1,5 +1,5 @@
 <template>
-    <section class="relative bg-green-600/5">
+    <section class="relative bg-blue-600/5">
         <div class="container-fluid relative">
             <div class="grid grid-cols-1">
                 <div class="flex flex-col min-h-screen justify-center md:px-10 py-10 px-4">
@@ -14,7 +14,7 @@
 
                         <div class="mt-4">
                             <router-link to="/"
-                                class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md">Back
+                                class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white rounded-md">Back
                                 to Home</router-link>
                         </div>
                     </div>

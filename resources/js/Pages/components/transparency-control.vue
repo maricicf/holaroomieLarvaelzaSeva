@@ -9,7 +9,7 @@
                     </div>
                     <div class="absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center">
                         <a @click="toggle" data-type="youtube" data-id="yba7hPeTSjk"
-                            class="lightbox size-20 rounded-full shadow-md dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-green-600 cursor-pointer">
+                            class="lightbox size-20 rounded-full shadow-md dark:shadow-gray-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-blue-600 cursor-pointer">
                             <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
                         </a>
                     </div>
@@ -26,7 +26,7 @@
                         Redefined.</p>
 
                     <div class="mt-4">
-                        <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md mt-3">Learn More
+                        <a href="" class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md mt-3">Learn More
                         </a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <img src="../assets/images/about.jpg" class="rounded-xl shadow-md" alt="">
                 <div class="absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center">
                     <a @click="toggle" data-type="youtube" data-id="yba7hPeTSjk"
-                        class="lightbox size-20 rounded-full shadow-md dark:shadow-gyay-700 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-green-600 cursor-pointer">
+                        class="lightbox size-20 rounded-full shadow-md dark:shadow-gyay-700 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-blue-600 cursor-pointer">
                         <i class="mdi mdi-play inline-flex items-center justify-center text-2xl"></i>
                     </a>
                 </div>
@@ -58,7 +58,7 @@
                     Redefined.</p>
 
                 <div class="mt-4">
-                    <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md mt-3">Learn More
+                    <a href="" class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md mt-3">Learn More
                     </a>
                 </div>
             </div>

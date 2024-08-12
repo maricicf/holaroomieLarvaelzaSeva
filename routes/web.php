@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,50 +31,30 @@ Route::middleware('auth')->group(function() {
         ->name('profile.destroy');
 });
 
-Route::get('/', function() {
-    return Inertia::render('Landing/Pages/index/index');
-})->name('home');
+// PAGE CONTROLLER ROUTES
+Route::get('/', [PageController::class, 'home'])->name('home');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/faq', [PageController::class, 'faq'])->name('faqs');
+Route::get('/packages', [PageController::class, 'packages'])->name('packages');
+Route::get('/rent', [PageController::class, 'rent'])->name('rent');
+Route::get('/property/{id}', [PageController::class, 'propertyDetail'])
+    ->name('property-detail');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
+Route::get('/blog/{id}', [PageController::class, 'blogDetail'])
+    ->name('blog-detail');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+Route::get('/login', [PageController::class, 'login'])->name('login');
+Route::get('/register', [PageController::class, 'register'])->name('register');
+Route::get('/re-password', [PageController::class, 'rePassword'])
+    ->name('re-password');
 
-Route::get('/faq', function() {
-    return Inertia::render('Landing/Pages/pages/faqs');
-})->name('faqs');
-
-Route::get('/about', function() {
-    return Inertia::render('Landing/Pages/pages/aboutus');
-})->name('about');
-
-Route::get('/packages', function() {
-    return Inertia::render('Landing/Pages/pages/packages');
-})->name('packages');
-
-Route::get('/rent', function() {
-    return Inertia::render('Landing/Pages/listing/rent');
-})->name('rent');
-
-Route::get('/blog', function() {
-    return Inertia::render('Landing/Pages/pages/blog/blogs');
-})->name('blog');
-
-Route::get('/blog/{id}', function($id) {
-    return Inertia::render('Landing/Pages/pages/blog/blog-detail', [
-        'id' => $id,
-    ]);
-})->name('blog-detail');
-
-Route::get('/contact', function() {
-    return Inertia::render('Landing/Pages/contact');
-})->name('contact');
-
-Route::get('/login', function() {
-    return Inertia::render('Landing/Pages/pages/auth-pages/auth-login');
-})->name('login');
-
-Route::get('/register', function() {
-    return Inertia::render('Landing/Pages/pages/auth-pages/auth-register');
-})->name('register');
-
-Route::get('/re-password', function() {
-    return Inertia::render('Landing/Pages/pages/auth-pages/auth-re-password');
-})->name('register');
+// AUTH CONTROLLER ROUTES
+Route::post('/register', [UserController::class, 'store'])
+    ->name('register');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');
+Route::post('/login', [AuthController::class, 'login'])
+    ->name('login');
 
 //require __DIR__.'/auth.php';
+Route::get('/login', [PageController::class, 'login'])->name('login');

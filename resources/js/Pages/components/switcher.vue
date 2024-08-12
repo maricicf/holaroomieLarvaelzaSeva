@@ -29,14 +29,14 @@
     <!-- LTR & RTL Mode Code -->
 
     <div v-if="back" class="fixed bottom-3 end-3 z-10">
-        <router-link to="/" class="back-button btn btn-icon bg-green-600 hover:bg-green-700 text-white rounded-full"><i
+        <router-link to="/" class="back-button btn btn-icon bg-blue-600 hover:bg-blue-700 text-white rounded-full"><i
                 data-feather="arrow-left" class="size-4"></i></router-link>
     </div>
 
 
     <!-- Back to top -->
     <a v-else @click="scrollToTop" v-show="showTopButton" id="back-to-top"
-        class="fixed text-lg cursor-pointer rounded-full z-10 bottom-5 end-5 h-9 w-9 text-center bg-green-600 text-white leading-9"><i
+        class="fixed text-lg cursor-pointer rounded-full z-10 bottom-5 end-5 h-9 w-9 text-center bg-blue-600 text-white leading-9"><i
             class="uil uil-arrow-up"></i></a>
     <!-- Back to top -->
     <!-- Back to top -->

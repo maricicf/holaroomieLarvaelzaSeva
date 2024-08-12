@@ -93,13 +93,13 @@
             <ul class="buy-button list-none mb-0">
                 <li class="inline mb-0">
                     <Link :href="route('login')"
-                          class="btn btn-icon bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">
+                          class="btn btn-icon bg-blue-600 hover:bg-blue-700 border-blue-600 dark:border-blue-600 text-white rounded-full">
                         <i
                             data-feather="user" class="size-4 stroke-[3]"></i></Link>
                 </li>
                 <li class="sm:inline ps-1 mb-0 hidden">
                     <Link :href="route('register')"
-                          class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">
+                          class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 dark:border-blue-600 text-white rounded-full">
                         Register
                     </Link>
                 </li>

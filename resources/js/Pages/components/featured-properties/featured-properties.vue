@@ -25,23 +25,23 @@
             <div class="p-6">
                 <div class="pb-6">
                     <router-link :to="{ name: 'property-detail-two', params: { id: item.id } }"
-                        class="text-lg hover:text-green-600 font-medium ease-in-out duration-500">{{ item.name
+                        class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
                         }}</router-link>
                 </div>
 
                 <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                     <li class="flex items-center me-4">
-                        <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.sqf }}</span>
                     </li>
 
                     <li class="flex items-center me-4">
-                        <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.beds }}</span>
                     </li>
 
                     <li class="flex items-center">
-                        <i class="uil uil-bath text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.baths }}</span>
                     </li>
                 </ul>
@@ -51,7 +51,7 @@
                         <span class="text-slate-400">Price</span>
                         <p class="text-lg font-medium">{{ item.price }}</p>
                     </li>
-                    <!-- 
+                    <!--
                         <li>
                             <span class="text-slate-400">Rating</span>
                             <ul class="text-lg font-medium text-amber-400 list-none">
@@ -80,23 +80,23 @@
             <div class="p-6">
                 <div class="pb-6">
                     <router-link :to="{ name: 'property-detail', params: { id: item.id } }"
-                        class="text-lg hover:text-green-600 font-medium ease-in-out duration-500">{{ item.name
+                        class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
                         }}</router-link>
                 </div>
 
                 <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                     <li class="flex items-center me-4">
-                        <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.sqf }}</span>
                     </li>
 
                     <li class="flex items-center me-4">
-                        <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.beds }}</span>
                     </li>
 
                     <li class="flex items-center">
-                        <i class="uil uil-bath text-2xl me-2 text-green-600"></i>
+                        <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
                         <span>{{ item.baths }}</span>
                     </li>
                 </ul>

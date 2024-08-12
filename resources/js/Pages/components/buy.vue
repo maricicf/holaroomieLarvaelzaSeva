@@ -7,7 +7,7 @@
                         id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
                         <li v-for="item in datas" :key="item" role="presentation" class="mt-4 first:mt-0">
                             <button @click="handleclick(item.id)"
-                                :class="item.id === active ? 'text-white bg-green-600 ' : 'dark:hover:bg-slate-800 dark:hover:text-white hover:text-green-600 hover:bg-gray-50'"
+                                :class="item.id === active ? 'text-white bg-blue-600 ' : 'dark:hover:bg-slate-800 dark:hover:text-white hover:text-blue-600 hover:bg-gray-50'"
                                 class="px-4 py-2 text-base font-medium rounded-md w-full transition-all duration-500 ease-in-out"
                                 id="letter-tab" data-tabs-target="#letter" type="button" role="tab"
                                 aria-controls="letter" aria-selected="true">{{ item.name }}</button>

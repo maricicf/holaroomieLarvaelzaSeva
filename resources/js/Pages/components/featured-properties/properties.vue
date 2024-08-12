@@ -23,23 +23,23 @@
                 <div class="p-6 w-full">
                     <div class="md:pb-4 pb-6">
                         <router-link :to="{ name: 'property-detail-two', params: { id: item.id } }"
-                            class="text-lg hover:text-green-600 font-medium ease-in-out duration-500">{{ item.name
+                            class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
                             }}</router-link>
                     </div>
 
                     <ul class="md:py-4 py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                         <li class="flex items-center me-4">
-                            <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.sqf }}</span>
                         </li>
 
                         <li class="flex items-center me-4">
-                            <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.beds }}</span>
                         </li>
 
                         <li class="flex items-center">
-                            <i class="uil uil-bath text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.baths }}</span>
                         </li>
                     </ul>
@@ -49,7 +49,7 @@
                             <span class="text-slate-400">Price</span>
                             <p class="text-lg font-medium">{{ item.price }}</p>
                         </li>
-                        <!-- 
+                        <!--
                         <li>
                             <span class="text-slate-400">Rating</span>
                             <ul class="text-lg font-medium text-amber-400 list-none">
@@ -67,7 +67,7 @@
     <div v-if="moreview" class="md:flex justify-center text-center mt-6">
         <div class="md:w-full">
             <router-link to="/list"
-                class="btn btn-link text-green-600 hover:text-green-600 after:bg-green-600 transition duration-500">View
+                class="btn btn-link text-blue-600 hover:text-blue-600 after:bg-blue-600 transition duration-500">View
                 More Properties <i class="uil uil-arrow-right ms-1"></i></router-link>
         </div>
     </div>
@@ -88,23 +88,23 @@
                 <div class="p-6 w-full">
                     <div class="md:pb-4 pb-6">
                         <router-link :to="{ name: 'property-detail-two', params: { id: item.id } }"
-                            class="text-lg hover:text-green-600 font-medium ease-in-out duration-500">{{ item.name
+                            class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
                             }}</router-link>
                     </div>
 
                     <ul class="md:py-4 py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                         <li class="flex items-center me-4">
-                            <i class="uil uil-compress-arrows text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.sqf }}</span>
                         </li>
 
                         <li class="flex items-center me-4">
-                            <i class="uil uil-bed-double text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.beds }}</span>
                         </li>
 
                         <li class="flex items-center">
-                            <i class="uil uil-bath text-2xl me-2 text-green-600"></i>
+                            <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
                             <span>{{ item.baths }}</span>
                         </li>
                     </ul>

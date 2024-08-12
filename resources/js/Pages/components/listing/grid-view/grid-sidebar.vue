@@ -10,7 +10,7 @@
                                             <input name="search" id="searchname" type="text" class="form-input border border-slate-100 dark:border-slate-800 ps-10" placeholder="Search">
                                         </div>
                                     </div>
-                                    
+
                                     <div>
                                         <label class="font-medium">Categories</label>
                                         <select class="form-select form-input border border-slate-100 dark:border-slate-800 block w-full mt-1">
@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div>
-                                        <input type="submit" class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md w-full" value="Apply Filter">
+                                        <input type="submit" class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white rounded-md w-full" value="Apply Filter">
                                     </div>
                                 </div>
                             </form>

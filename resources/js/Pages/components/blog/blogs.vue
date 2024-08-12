@@ -1,5 +1,5 @@
 <template>
-    
+
         <div :class="grids">
             <div v-for="item in datas" :key="item"
                 class="group relative h-fit hover:-mt-[5px] overflow-hidden bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700 transition-all duration-500">
@@ -7,7 +7,7 @@
                     <img :src="item.image" class="" alt="">
                     <div class="absolute end-4 top-4">
                         <span
-                            class="bg-green-600 text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">{{ item.category }}</span>
+                            class="bg-blue-600 text-white text-[14px] px-2.5 py-1 font-medium rounded-full h-5">{{ item.category }}</span>
                     </div>
                 </div>
 
@@ -21,11 +21,11 @@
                         </div>
 
                         <router-link :to="{ name: 'blog-detail', params: { id: item.id } }"
-                            class="title text-xl font-medium hover:text-green-600 duration-500 ease-in-out">{{ item.title }}</router-link>
+                            class="title text-xl font-medium hover:text-blue-600 duration-500 ease-in-out">{{ item.title }}</router-link>
 
                         <div class="mt-3">
                             <router-link :to="{ name: 'blog-detail', params: { id: item.id } }"
-                                class="btn btn-link hover:text-green-600 after:bg-green-600 duration-500 ease-in-out">Read
+                                class="btn btn-link hover:text-blue-600 after:bg-blue-600 duration-500 ease-in-out">Read
                                 More <i class="uil uil-arrow-right"></i></router-link>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
         </div><!--end grid-->
 
         <pagination />
-   
+
 </template>
 
 <script setup>

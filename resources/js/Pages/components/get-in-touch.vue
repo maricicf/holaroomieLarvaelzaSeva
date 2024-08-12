@@ -8,7 +8,7 @@
                 any agent or commisions.</p>
 
             <div class="mt-6">
-                <router-link to="/contact" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md"><i
+                <router-link to="/contact" class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md"><i
                         class="uil uil-phone align-middle me-2"></i> Contact us</router-link>
             </div>
         </div><!--end grid-->

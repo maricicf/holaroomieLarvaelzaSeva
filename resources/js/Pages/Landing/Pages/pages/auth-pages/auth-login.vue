@@ -8,26 +8,32 @@
             <div class="flex justify-center">
                 <div
                     class="max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
-                    <Link :href="route('home')"><img src="/assets/images/logo-icon-64.png" class="mx-auto" alt=""></Link>
+                    <Link :href="route('home')"><img src="/assets/images/logo-icon-64.png" class="mx-auto" alt="">
+                    </Link>
                     <h5 class="my-6 text-xl font-semibold">Login</h5>
-                    <form class="text-start">
+                    <form class="text-start" @submit.prevent="submitLoginForm">
                         <div class="grid grid-cols-1">
                             <div class="mb-4">
-                                <label class="font-medium" for="LoginEmail">Email Address:</label>
-                                <input id="LoginEmail" type="email" class="form-input mt-3"
+                                <label class="font-medium" for="email">Email Address:</label>
+                                <input id="email" type="email" class="form-input mt-3" v-model="loginForm.email"
                                        placeholder="name@example.com">
+                                <div class="text-red-500" v-if="loginForm.errors.email"
+                                     v-text="loginForm.errors.email"></div>
                             </div>
 
                             <div class="mb-4">
                                 <label class="font-medium" for="LoginPassword">Password:</label>
                                 <input id="LoginPassword" type="password" class="form-input mt-3"
+                                       v-model="loginForm.password"
                                        placeholder="Password">
+                                <div class="text-red-500" v-if="loginForm.errors.password"
+                                     v-text="loginForm.errors.password"></div>
                             </div>
 
                             <div class="flex justify-between mb-4">
                                 <div class="flex items-center mb-0">
                                     <input
-                                        class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-green-600 focus:border-green-300 focus:ring focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2"
+                                        class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-blue-600 focus:border-blue-300 focus:ring focus:ring-offset-0 focus:ring-blue-200 focus:ring-opacity-50 me-2"
                                         type="checkbox" value="" id="RememberMe">
                                     <label class="form-checkbox-label text-slate-400" for="RememberMe">Remember
                                         me</label>
@@ -40,8 +46,9 @@
                             </div>
 
                             <div class="mb-4">
-                                <a href=""
-                                   class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Login</a>
+                                <button type="submit"
+                                        class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Login
+                                </button>
                             </div>
 
                             <div class="text-center">
@@ -60,7 +67,25 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+import {Link} from '@inertiajs/inertia-vue3';
+import {useForm} from '@inertiajs/vue3';
+
+const loginForm = useForm({
+    email: '',
+    password: '',
+});
+
+const submitLoginForm = () => {
+    console.log(loginForm);
+    loginForm.post('/login', {
+        preserveScroll: true,
+        onSuccess: () => {
+            // Do something after the form has been successfully submitted
+        },
+    });
+
+};
+
 </script>
 
 <style lang="scss" scoped></style>

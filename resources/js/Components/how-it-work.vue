@@ -12,9 +12,9 @@
         <div v-for="item in datas" :key="item"
             class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl bg-transparent overflow-hidden text-center">
             <div class="relative overflow-hidden text-transparent -m-3">
-                <i data-feather="hexagon" class="size-32 fill-green-600/5 mx-auto"></i>
+                <i data-feather="hexagon" class="size-32 fill-blue-600/5 mx-auto"></i>
                 <div
-                    class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-green-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                    class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-blue-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
                     <i :class="item.icon"></i>
                 </div>
             </div>
