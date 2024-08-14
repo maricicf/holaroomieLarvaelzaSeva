@@ -28,7 +28,7 @@
                         class="rounded-md bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 ps-12"
                         placeholder="City, Address, Zip :">
                     <button type="submit"
-                        class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md">Search</button>
+                        class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md">Search</button>
                 </form><!--end form-->
             </div>
         </div><!--end grid-->

@@ -35,7 +35,7 @@
                         <p class="text-slate-400">You are specifically restricted from all of the following :</p>
                         <ul class="list-none text-slate-400 mt-3">
                             <li v-for="item in restrictions" :key="item" class="flex mt-2"><i
-                                    class="uil uil-arrow-right text-blue-600 align-middle me-2"></i>{{ item }}</li>
+                                    class="uil uil-arrow-right text-cyan-600 align-middle me-2"></i>{{ item }}</li>
                         </ul>
 
                         <h5 class="text-xl font-medium mt-8">Users Question & Answer :</h5>
@@ -45,7 +45,7 @@
                                 class="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
                                 <h2 class="text-base font-semibold" id="accordion-collapse-heading-1">
                                     <button type="button " @click="isActive = isActive === item.id ? null : item.id"
-                                        :class="item.id === isActive ? 'bg-gray-50 dark:bg-slate-800 text-blue-600' : ''"
+                                        :class="item.id === isActive ? 'bg-gray-50 dark:bg-slate-800 text-cyan-600' : ''"
                                         class=" flex justify-between items-center p-5 w-full font-medium text-start">
                                         <span>{{ item.title }}</span>
                                         <svg data-accordion-icon class="size-4  shrink-0"
@@ -67,9 +67,9 @@
                         </div>
 
                         <div class="mt-6">
-                            <a href="" class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md">Accept</a>
+                            <a href="" class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md">Accept</a>
                             <a href=""
-                                class="btn bg-transparent hover:bg-blue-600 border border-blue-600 text-blue-600 hover:text-white rounded-md ms-2">Decline</a>
+                                class="btn bg-transparent hover:bg-cyan-600 border border-cyan-600 text-cyan-600 hover:text-white rounded-md ms-2">Decline</a>
                         </div>
                     </div>
                 </div><!--end -->

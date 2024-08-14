@@ -1,4 +1,5 @@
 <template>
+<Head title="Blog"/>
     <navbar :container="'container'" :navLight="'nav-light justify-end'" :logoLight=true />
     <!-- Start Hero -->
     <section
@@ -31,7 +32,7 @@
 
 <script setup>
 import navbar from '@/Components/navbar/navbar.vue';
-import switcher from '@/Components/switcher.vue';
+import {Head} from '@inertiajs/vue3';
 import footers from '@/Components/footers/footer.vue'
 </script>
 

@@ -5,15 +5,15 @@
             <div v-for="item in datas" :key="item"
                 class="group relative lg:px-10 transition-all duration-500 ease-in-out rounded-xl grid place-items-center text-center bg-white dark:bg-slate-900 overflow-hidden ">
                 <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="size-32 fill-blue-600/5"></i>
+                    <i data-feather="hexagon" class="size-32 fill-cyan-600/5"></i>
                     <div
-                        class="absolute top-[50%] -translate-y-[50%] start-[45px] text-blue-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                        class="absolute top-[50%] -translate-y-[50%] start-[45px] text-cyan-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
                         <i :class="item.icon"></i>
                     </div>
                 </div>
 
                 <div class="mt-6">
-                    <a href="" class="text-xl hover:text-blue-600 font-medium">{{ item.name }}</a>
+                    <a href="" class="text-xl hover:text-cyan-600 font-medium">{{ item.name }}</a>
                     <p class="text-slate-400 mt-3">{{ item.title }}</p>
                 </div>
             </div>

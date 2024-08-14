@@ -326,8 +326,8 @@ try {
 try {
     const Default = {
         defaultTabId: null,
-        activeClasses: 'text-white bg-blue-600',
-        inactiveClasses: 'hover:text-blue-600 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800',
+        activeClasses: 'text-white bg-cyan-600',
+        inactiveClasses: 'hover:text-cyan-600 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-slate-800',
         onShow: () => { }
     }
 
@@ -435,7 +435,7 @@ try {
 try {
     const Default = {
         alwaysOpen: false,
-        activeClasses: 'bg-gray-50 dark:bg-slate-800 text-blue-600',
+        activeClasses: 'bg-gray-50 dark:bg-slate-800 text-cyan-600',
         inactiveClasses: 'text-dark dark:text-white',
         onOpen: () => { },
         onClose: () => { },

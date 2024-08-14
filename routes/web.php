@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +50,12 @@ Route::get('/register', [PageController::class, 'register'])->name('register');
 Route::get('/re-password', [PageController::class, 'rePassword'])
     ->name('re-password');
 
+// Authenticated user routes
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/profile', [PageController::class, 'profile'])
+        ->name('profile');
+});
+
 // AUTH CONTROLLER ROUTES
 Route::post('/register', [UserController::class, 'store'])
     ->name('register');
@@ -55,6 +63,15 @@ Route::post('/logout', [AuthController::class, 'logout'])
     ->name('logout');
 Route::post('/login', [AuthController::class, 'login'])
     ->name('login');
+Route::get('/login', [PageController::class, 'login'])
+    ->name('login');
 
 //require __DIR__.'/auth.php';
-Route::get('/login', [PageController::class, 'login'])->name('login');
+
+// FAQ CONTROLLER ROUTES
+Route::get('/faq-create', [FaqController::class, 'create'])
+    ->name('faq.create');
+
+// PROPERTY CONTROLLER ROUTES
+Route::get('/property-create', [PropertyController::class, 'create'])
+    ->name('property.create');

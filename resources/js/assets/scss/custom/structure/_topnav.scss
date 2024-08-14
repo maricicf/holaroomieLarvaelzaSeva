@@ -25,14 +25,14 @@
           li{
             &.active {
               > a {
-                @apply text-blue-600 dark:text-blue-600 #{!important};
+                @apply text-cyan-600 dark:text-cyan-600 #{!important};
               }
             }
           }
         }
         &.active {
           .menu-arrow {
-            @apply border-blue-600 dark:border-blue-600;
+            @apply border-cyan-600 dark:border-cyan-600;
           }
         }
       }
@@ -44,17 +44,17 @@
         .has-submenu {
           &:hover {
             > .submenu-arrow {
-              @apply border-blue-600 dark:border-blue-600;
+              @apply border-cyan-600 dark:border-cyan-600;
             }
           }
           .submenu {
             .has-submenu{
               &:hover {
                 .submenu-arrow {
-                  @apply border-blue-600 dark:border-blue-600;
+                  @apply border-cyan-600 dark:border-cyan-600;
                 }
                 > .submenu-arrow {
-                  @apply border-blue-600 dark:border-blue-600;
+                  @apply border-cyan-600 dark:border-cyan-600;
                 }
               }
             }
@@ -87,7 +87,7 @@
             @apply w-full top-[6px] -rotate-[45deg];
           }
           &:hover {
-            @apply bg-blue-600;
+            @apply bg-cyan-600;
           }
         }
       }
@@ -146,13 +146,13 @@
           @apply block text-black dark:text-white text-base bg-transparent font-medium tracking-[1px] leading-6 font-body px-[15px];
           &:hover,
           &:active {
-            @apply text-blue-600;
+            @apply text-cyan-600;
           }
         }
         &:hover,
         &.active{
           > a {
-            @apply text-blue-600 dark:text-blue-600 #{!important};
+            @apply text-cyan-600 dark:text-cyan-600 #{!important};
           }
         }
         .submenu.megamenu {
@@ -191,10 +191,10 @@
           &:hover,
           &.active{
             > a {
-              @apply text-blue-600;
+              @apply text-cyan-600;
             }
             > .menu-arrow {
-              @apply border-blue-600 dark:border-blue-600;
+              @apply border-cyan-600 dark:border-cyan-600;
             }
           }
         }
@@ -222,20 +222,20 @@
             }
             &.active {
               > a {
-                @apply text-blue-600 dark:text-blue-600 #{!important};
+                @apply text-cyan-600 dark:text-cyan-600 #{!important};
               }
             }
             &:hover,
             &.active{
               > .menu-arrow {
-                @apply border-blue-600 #{!important};
+                @apply border-cyan-600 #{!important};
               }
             }
 
             &:hover,
             &.active {
               > a {
-                @apply text-blue-600 dark:text-blue-600 #{!important};
+                @apply text-cyan-600 dark:text-cyan-600 #{!important};
               }
             }
           }
@@ -317,7 +317,7 @@
               transition: all 0.3s;
               @apply block py-[10px] px-5 clear-both whitespace-nowrap text-[16px] tracking-[0.04em] font-normal text-black dark:text-white leading-[17px];
               &:hover {
-                @apply text-blue-600 dark:text-blue-600 #{!important};
+                @apply text-cyan-600 dark:text-cyan-600 #{!important};
               }
             }
             ul {
@@ -344,13 +344,13 @@
         }
         &:hover {
           > .menu-arrow {
-            @apply border-blue-600 dark:border-blue-600;
+            @apply border-cyan-600 dark:border-cyan-600;
           }
         }
         &:hover,
         &.active{
           > a {
-            @apply text-blue-600 dark:text-blue-600 #{!important};
+            @apply text-cyan-600 dark:text-cyan-600 #{!important};
           }
         }
         &.last-elements{
@@ -490,7 +490,7 @@
         > a:hover,
         .submenu li a:hover,
         &.has-submenu.open > a {
-          @apply text-blue-600;
+          @apply text-cyan-600;
         }
       }
     }
@@ -521,7 +521,7 @@
       }
       &.active {
         a {
-          @apply text-blue-600;
+          @apply text-cyan-600;
         }
       }
     }
@@ -626,20 +626,20 @@
           &:hover,
           &.active {
             .navbar-link {
-              @apply text-blue-600;
+              @apply text-cyan-600;
             }
           }
     }
     li{
       &.active {
         a {
-          @apply text-blue-600;
+          @apply text-cyan-600;
         }
       }
       &.account-menu.active,
       &.account-menu:hover{
         .navbar-link {
-          @apply bg-blue-600 text-white dark:text-slate-900 #{!important};
+          @apply bg-cyan-600 text-white dark:text-slate-900 #{!important};
         }
       }
     }

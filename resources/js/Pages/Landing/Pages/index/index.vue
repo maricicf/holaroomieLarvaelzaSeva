@@ -1,5 +1,5 @@
 <template>
-    <Head title="Home" />
+    <Head title="Home"/>
 
     <navbar :logoLight=true :navLight="'nav-light justify-end'" :container="'container'"/>
     <!-- Hero Start -->
@@ -29,7 +29,7 @@
         <div class="container relative lg:mt-24 mt-16">
             <howitwork/>
         </div>
-        <properties/>
+        <properties :data="props.properties"/>
     </section>
     <cta/>
     <section class="pt-10">
@@ -41,7 +41,7 @@
         </div>
         <getintouch/>
     </section>
-<!--    <switcher :back="false"/>-->
+    <!--    <switcher :back="false"/>-->
     <footers/>
 
 </template>
@@ -59,6 +59,16 @@ import client from '@/Components/clients/client-slider.vue';
 import getintouch from '@/Components/get-in-touch.vue';
 import footers from '@/Components/footers/footer.vue';
 import {Head} from '@inertiajs/vue3';
+import {onMounted} from 'vue';
+
+const props = defineProps({
+    properties: {
+        type: Object,
+        required: true,
+    },
+});
+
+
 </script>
 
 <style lang="scss" scoped></style>

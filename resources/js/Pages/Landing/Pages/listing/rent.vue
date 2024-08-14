@@ -1,5 +1,8 @@
 <template>
-    <navbar class="bg-white dark:bg-slate-900" :container="'container-fluid md:px-8 px-3'" :logoLight=true :navLight="'nav-dark justify-end'" />
+    <Head title="Properties"/>
+
+    <navbar class="bg-white dark:bg-slate-900" :container="'container-fluid md:px-8 px-3'" :logoLight=true
+            :navLight="'nav-dark justify-end'"/>
 
     <!-- Start -->
     <section class="relative">
@@ -8,11 +11,12 @@
                 <div>
                     <div class="relative mt-12 md:p-8 py-8 px-3">
                         <div class="grid grid-cols-1">
-                            <filters :grids="'grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6'" />
+                            <filters :grids="'grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-0 gap-6'"/>
                         </div><!--end grid-->
 
-                        <properties :grids="'grid grid-cols-1 gap-[30px] mt-8'" :width="'xl:w-96'" />
-                        <pagination />
+                        <properties :properties="props.properties" :grids="'grid grid-cols-1 gap-[30px] mt-8'"
+                                    :width="'xl:w-96'"/>
+                        <pagination/>
                     </div>
 
                 </div>
@@ -35,6 +39,14 @@ import navbar from '@/Components/navbar/navbar.vue';
 import filters from '@/Components/filters/filters.vue';
 import pagination from '@/Components/pagination.vue';
 import properties from '@/Components/featured-properties/properties.vue';
+import {Head} from '@inertiajs/vue3';
+
+const props = defineProps({
+    properties: {
+        type: Array,
+        required: true,
+    },
+});
 
 </script>
 

@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="mb-4">
                                     <a href=""
-                                       class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Send</a>
+                                       class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md w-full">Send</a>
                                 </div>
                             </div>
                         </form>

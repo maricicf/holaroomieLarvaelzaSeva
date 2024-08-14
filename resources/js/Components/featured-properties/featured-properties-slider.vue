@@ -10,11 +10,11 @@
 
         <div class="grid grid-cols-1 mt-8 relative">
             <div class="tiny-home-slide-three">
-                <div v-for="item in datas" :key="item" class="tiny-slide">
+                <div v-for="item in props.data" :key="item" class="tiny-slide">
                     <div
                         class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-md dark:hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 m-3">
                         <div class="relative">
-                            <img :src="item.image" alt="">
+                            <img :src="'assets/images/property/'+item.images[0].path" alt="Image">
 
                             <!-- <div class="absolute top-4 end-4">
                                 <a href="javascript:void(0)"
@@ -25,34 +25,32 @@
 
                         <div class="p-6">
                             <div class="pb-6">
-                                <Link :href="'/property/' + item.id"
-                                      class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{
-                                        item.name
+                                <Link :href="route('property-detail',item.id)"
+                                      class="text-lg hover:text-cyan-600 font-medium ease-in-out duration-500">{{
+                                        item.title
                                     }}
                                 </Link>
                             </div>
 
+
                             <ul class="py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
-                                <li class="flex items-center me-4">
-                                    <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
-                                    <span>{{ item.sqf }}</span>
-                                </li>
-
-                                <li class="flex items-center me-4">
-                                    <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
-                                    <span>{{ item.beds }}</span>
-                                </li>
-
-                                <li class="flex items-center">
-                                    <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
-                                    <span>{{ item.baths }}</span>
-                                </li>
+                                <template v-for="specification in item.specifications">
+                                    <li class="flex items-center me-4"
+                                        v-if="specification.category.is_showcase"
+                                    >
+                                        <i class="uil text-2xl me-2 text-cyan-600"
+                                           :class="specification.category.icon"></i>
+                                        <span class="lg:text-xl">{{ specification.name }}{{
+                                                specification.category.name == 'Size' ? 'm2' : ''
+                                            }}</span>
+                                    </li>
+                                </template>
                             </ul>
 
                             <ul class="pt-6 flex justify-between items-center list-none">
                                 <li>
                                     <span class="text-slate-400">Price</span>
-                                    <p class="text-lg font-medium">{{ item.price }}</p>
+                                    <p class="text-lg font-medium">{{ item.prices[0].price }} euro</p>
                                 </li>
                                 <!--
                                 <li>
@@ -76,6 +74,13 @@
 import {ref, onMounted} from 'vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {tns} from 'tiny-slider/src/tiny-slider';
+
+const props = defineProps({
+    data: {
+        type: Object,
+        required: true,
+    },
+});
 
 const datas = ref([
     {

@@ -6,11 +6,11 @@
                 class="rounded-md shadow dark:shadow-gray-700 hover:shadow-md dark:hover:shadow-gray-700 duration-500 ease-in-out">
                 <div class="border-b dark:border-gray-800 p-6 text-center">
                     <div
-                        class="size-24 bg-blue-600/5 text-blue-600 flex items-center justify-center text-3xl rounded-full mx-auto">
+                        class="size-24 bg-cyan-600/5 text-cyan-600 flex items-center justify-center text-3xl rounded-full mx-auto">
                         <i :class="item.icon"></i>
                     </div>
 
-                    <h3 class="text-2xl text-blue-600 font-medium mt-4">{{item.name}}</h3>
+                    <h3 class="text-2xl text-cyan-600 font-medium mt-4">{{item.name}}</h3>
 
                     <div class="flex justify-center mt-4">
                         <span class="text-xl">{{item.symbol}}</span>
@@ -23,12 +23,12 @@
                     <h5>Pricing Features:</h5>
 
                     <ul class="list-none">
-                        <li v-for="pricing in item.pricing" :key="pricing" class="text-slate-400 mt-2"><span class="text-blue-600 text-lg me-2"><i
+                        <li v-for="pricing in item.pricing" :key="pricing" class="text-slate-400 mt-2"><span class="text-cyan-600 text-lg me-2"><i
                                     class="uil uil-check-circle align-middle"></i></span>{{pricing}}</li>
                     </ul>
 
                     <a href=""
-                        class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 dark:border-blue-600 text-white rounded-md w-full mt-4">Get
+                        class="btn bg-cyan-600 hover:bg-cyan-700 border-cyan-600 dark:border-cyan-600 text-white rounded-md w-full mt-4">Get
                         Started</a>
                 </div>
             </div>

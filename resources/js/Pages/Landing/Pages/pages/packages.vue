@@ -1,4 +1,5 @@
 <template>
+    <Head title="Packages"/>
     <navbar :container="'container'" :logoLight=true :navLight="'nav-light justify-end'"/>
     <!-- Start Hero -->
     <section
@@ -31,6 +32,7 @@ import navbar from '@/Components/navbar/navbar.vue';
 import pricing from '@/Components/pricing.vue';
 import getintouch from '@/Components/get-in-touch.vue';
 import footers from '@/Components/footers/footer.vue';
+import {Head} from '@inertiajs/vue3';
 </script>
 
 <style lang="scss" scoped></style>

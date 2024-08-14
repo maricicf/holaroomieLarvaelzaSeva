@@ -2,7 +2,15 @@
 
 namespace App\Repositories\Page;
 
-class PageRepository implements IPageRepository{
+use App\Repositories\Faq\FaqRepository;
+
+class PageRepository implements IPageRepository {
+
+    protected $faqRepository;
+
+    public function __construct(FaqRepository $faqRepository) {
+        $this->faqRepository = $faqRepository;
+    }
 
     public function getHomePageData() {
         // TODO: Implement getHomePageData() method.
@@ -13,7 +21,7 @@ class PageRepository implements IPageRepository{
     }
 
     public function getFaqPageData() {
-        // TODO: Implement getFaqPageData() method.
+        return $this->faqRepository->all();
     }
 
     public function getPackagesPageData() {

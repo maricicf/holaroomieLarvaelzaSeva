@@ -1,4 +1,5 @@
 <template>
+    <Head title="About Us"/>
     <navbar :container="'container'" :logoLight=true :navLight="'nav-light justify-end'"/>
     <!-- Start Hero -->
     <section
@@ -44,6 +45,7 @@ import cta from '@/Components/cta/cta.vue';
 import client from '@/Components/clients/client-slider.vue';
 import getintouch from '@/Components/get-in-touch.vue';
 import footers from '@/Components/footers/footer.vue';
+import {Head} from '@inertiajs/vue3';
 </script>
 
 <style lang="scss" scoped></style>

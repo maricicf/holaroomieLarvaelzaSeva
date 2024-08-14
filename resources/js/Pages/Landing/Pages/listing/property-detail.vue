@@ -1,4 +1,5 @@
 <template>
+    <Head title="Property Detail"/>
     <div>
         <navbar :container="'container'" :navLight="'justify-end'"/>
         <!-- Start -->
@@ -6,64 +7,54 @@
             <div class="container relative">
                 <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                     <div class="lg:col-span-8 md:col-span-7">
-                        <div v-if="data?.image" class="grid grid-cols-1 relative">
-                            <img :src="data.image" class="img-fluid rounded" alt=""/>
+                        <div v-if="props.data?.image" class="grid grid-cols-1 relative">
+                            <img :src="'/assets/images/property/single/' + data.image" class="img-fluid rounded"
+                                 alt=""/>
                         </div>
                         <div v-else class="grid grid-cols-1 relative">
                             <div class="tiny-one-item">
-                                <div v-for="item in images" :key="item" class="tiny-slide">
-                                    <img :src="item"
+                                <div v-for="item in props.data.images" :key="item" class="tiny-slide">
+                                    <img :src="'/assets/images/property/single/' + item.path"
                                          class="rounded-md shadow dark:shadow-gray-700"
                                          alt="property"/>
                                 </div>
                             </div>
                         </div><!--end col-->
 
-                        <h4 class="text-2xl font-medium mt-6 mb-3">4BHK Luxury Family Home</h4>
+                        <h4 class="text-2xl font-medium mt-6 mb-3">{{ props.data.title }}</h4>
                         <span class="text-slate-400 flex items-center"><i data-feather="map-pin"
                                                                           class="size-5 me-2"></i>
-                            {{ data?.name ? data?.name : '10765 Hillshire Ave, Baton Rouge, LA 70810, USA' }}</span>
+                            {{ props.data.area.city.name + ', ' + props.data.area.name }},
+                            {{ props.data.address.street }} {{
+                                props.data.address.number
+                            }}, {{
+                                props.data.address.floor
+                            }} floor, door {{ props.data.address.door }},
+                            {{ props.data.address.zip_code }}
+                        </span>
+
 
                         <ul class="py-6 flex items-center list-none">
-                            <li class="flex items-center lg:me-6 me-4">
-                                <i class="uil uil-compress-arrows lg:text-3xl text-2xl me-2 text-blue-600"></i>
-                                <span class="lg:text-xl">8000sqf</span>
-                            </li>
-
-                            <li class="flex items-center lg:me-6 me-4">
-                                <i class="uil uil-bed-double lg:text-3xl text-2xl me-2 text-blue-600"></i>
-                                <span class="lg:text-xl">4 Beds</span>
-                            </li>
-
-                            <li class="flex items-center">
-                                <i class="uil uil-bath lg:text-3xl text-2xl me-2 text-blue-600"></i>
-                                <span class="lg:text-xl">4 Baths</span>
-                            </li>
+                            <template v-for="specification in props.data.specifications">
+                                <li class="flex items-center lg:me-6 me-4"
+                                    v-if="specification.category.is_showcase"
+                                >
+                                    <i class="uil  lg:text-3xl text-2xl me-2 text-cyan-600"
+                                       :class="specification.category.icon"></i>
+                                    <span class="lg:text-xl">{{ specification.name }}{{
+                                            specification.category.name == 'Size' ? 'm2' : ''
+                                        }}</span>
+                                </li>
+                            </template>
                         </ul>
 
-                        <p class="text-slate-400">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-                            quasi
-                            architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-                            voluptatem
-                            sequi nesciunt.</p>
-                        <p class="text-slate-400 mt-4">But I must explain to you how all this mistaken idea of
-                            denouncing
-                            pleasure and praising pain was born and I will give you a complete account of the system,
-                            and
-                            expound the actual teachings of the great explorer of the truth, the master-builder of human
-                            happiness.</p>
-                        <p class="text-slate-400 mt-4">Nor again is there anyone who loves or pursues or desires to
-                            obtain
-                            pain of itself, because it is pain, but because occasionally circumstances occur in which
-                            toil
-                            and pain can procure him some great pleasure.</p>
+                        <p class="text-slate-400">
+                            {{ props.data.description }}
+                        </p>
 
                         <div class="w-full leading-[0] border-0 mt-6">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
+                                :src="'https://maps.google.com/maps?q='+ props.data.latitude +','+props.data.longitude +'&hl=es&z=14&amp;output=embed'"
                                 style="border:0" class="w-full h-[500px]" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -78,37 +69,38 @@
                                         <span class="text-xl font-medium">{{ data?.price ? data?.price : '$45' }}</span>
 
                                         <span
-                                            class="bg-blue-600/10 text-blue-600 text-sm px-2.5 py-0.75 rounded h-6">For
+                                            class="bg-cyan-600/10 text-cyan-600 text-sm px-2.5 py-0.75 rounded h-6">For
                                             Sale</span>
                                     </div>
 
                                     <ul class="list-none mt-4">
-                                        <li class="flex justify-between items-center">
-                                            <span class="text-slate-400 text-sm">Days on Hously</span>
-                                            <span class="font-medium text-sm">124 Days</span>
+                                        <li class="flex justify-between items-center mb-2"
+                                            v-for="price in props.data.prices">
+                                            <span class="text-slate-400 text-sm">{{ price.category.name }}</span>
+                                            <span class="font-medium text-sm">{{ price.price }} euro</span>
                                         </li>
 
-                                        <li class="flex justify-between items-center mt-2">
-                                            <span class="text-slate-400 text-sm">Price per sq ft</span>
-                                            <span class="font-medium text-sm">$ 186</span>
-                                        </li>
+                                        <!--                                        <li class="flex justify-between items-center mt-2">-->
+                                        <!--                                            <span class="text-slate-400 text-sm">Price per sq ft</span>-->
+                                        <!--                                            <span class="font-medium text-sm">$ 186</span>-->
+                                        <!--                                        </li>-->
 
-                                        <li class="flex justify-between items-center mt-2">
-                                            <span class="text-slate-400 text-sm">Monthly Payment (estimate)</span>
-                                            <span class="font-medium text-sm">$ 1497/Monthly</span>
-                                        </li>
+                                        <!--                                        <li class="flex justify-between items-center mt-2">-->
+                                        <!--                                            <span class="text-slate-400 text-sm">Monthly Payment (estimate)</span>-->
+                                        <!--                                            <span class="font-medium text-sm">$ 1497/Monthly</span>-->
+                                        <!--                                        </li>-->
                                     </ul>
                                 </div>
 
                                 <div class="flex">
                                     <div class="p-1 w-1/2">
                                         <a href=""
-                                           class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Book
+                                           class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md w-full">Book
                                             Now</a>
                                     </div>
                                     <div class="p-1 w-1/2">
                                         <a href=""
-                                           class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Offer
+                                           class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md w-full">Offer
                                             Now</a>
                                     </div>
                                 </div>
@@ -121,7 +113,7 @@
 
                                 <div class="mt-6">
                                     <Link :href="route('contact')"
-                                          class="btn bg-transparent hover:bg-blue-600 border border-blue-600 text-blue-600 hover:text-white rounded-md">
+                                          class="btn bg-transparent hover:bg-cyan-600 border border-cyan-600 text-cyan-600 hover:text-white rounded-md">
                                         <i
                                             class="uil uil-phone align-middle me-2"></i> Contact us
                                     </Link>
@@ -132,7 +124,7 @@
                 </div>
             </div>
         </section><!--end section-->
-
+        <footers/>
     </div>
     <!-- End -->
 </template>
@@ -141,7 +133,20 @@
 import navbar from '@/Components/navbar/navbar.vue';
 import {ref, onMounted} from 'vue';
 import {tns} from 'tiny-slider/src/tiny-slider';
-import {Link} from '@inertiajs/inertia-vue3';
+import {Link, Head} from '@inertiajs/inertia-vue3';
+import Footer from '@/Components/footers/footer.vue';
+import footers from '@/Components/footers/footer.vue';
+
+const props = defineProps({
+    id: {
+        type: String,
+        required: true,
+    },
+    data: {
+        type: Object,
+        required: true,
+    },
+});
 
 const id = ref('');
 const data = ref('');
@@ -154,6 +159,7 @@ const images = [
     '/assets/images/property/single/5.jpg',
 ];
 onMounted(() => {
+    console.log(props.data);
     tns({
         container: '.tiny-one-item',
         items: 1,
@@ -171,141 +177,6 @@ onMounted(() => {
         gutter: 0,
     });
 });
-
-const datas = ref([
-    {
-        id: 1,
-        image: 'assets/images/property/1.jpg',
-        name: '10765 Hillshire Ave, Baton Rouge, LA 70810, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 2,
-        image: 'assets/images/property/2.jpg',
-        name: '59345 STONEWALL DR, Plaquemine, LA 70764, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 3,
-        image: 'assets/images/property/3.jpg',
-        name: '3723 SANDBAR DR, Addis, LA 70710, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 4,
-        image: 'assets/images/property/4.jpg',
-        name: 'Lot 21 ROYAL OAK DR, Prairieville, LA 70769, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 5,
-        image: 'assets/images/property/5.jpg',
-        name: '710 BOYD DR, Unit #1102, Baton Rouge, LA 70808, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 6,
-        image: 'assets/images/property/6.jpg',
-        name: '5133 MCLAIN WAY, Baton Rouge, LA 70809, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 7,
-        image: 'assets/images/property/7.jpg',
-        name: '2141 Fiero Street, Baton Rouge, LA 70808',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 8,
-        image: 'assets/images/property/8.jpg',
-        name: '9714 Inniswold Estates Ave, Baton Rouge, LA 70809',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 9,
-        image: 'assets/images/property/9.jpg',
-        name: '1433 Beckenham Dr, Baton Rouge, LA 70808, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 10,
-        image: 'assets/images/property/10.jpg',
-        name: '1574 Sharlo Ave, Baton Rouge, LA 70820, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 11,
-        image: 'assets/images/property/11.jpg',
-        name: '2528 BOCAGE LAKE DR, Baton Rouge, LA 70809, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-    {
-        id: 12,
-        image: 'assets/images/property/12.jpg',
-        name: '1533 NICHOLSON DR, Baton Rouge, LA 70802, USA',
-        sqf: '8000sqf',
-        beds: '4 Beds',
-        baths: '4 Baths',
-        price: '$5000',
-        rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
-    },
-]);
 
 </script>
 

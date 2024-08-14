@@ -91,16 +91,20 @@
             </div><!--end navigation-->
             <!--Login button Start-->
             <ul class="buy-button list-none mb-0">
-                <li class="inline mb-0">
-                    <Link :href="route('login')"
-                          class="btn btn-icon bg-blue-600 hover:bg-blue-700 border-blue-600 dark:border-blue-600 text-white rounded-full">
+                <li class="inline mb-0" v-if="page.props.auth.user != null">
+                    <Link :href="route('profile')"
+                          class="btn btn-icon bg-cyan-600 hover:bg-cyan-700 border-cyan-600 dark:border-cyan-600 text-white rounded-full me-3">
                         <i
                             data-feather="user" class="size-4 stroke-[3]"></i></Link>
+                    <Link :href="route('logout')" method="post" as="button"
+                          class="btn btn-icon bg-cyan-600 hover:bg-cyan-700 border-cyan-600 dark:border-cyan-600 text-white rounded-full">
+                        <i
+                            data-feather="log-out" class="size-4 stroke-[3]"></i></Link>
                 </li>
-                <li class="sm:inline ps-1 mb-0 hidden">
-                    <Link :href="route('register')"
-                          class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 dark:border-blue-600 text-white rounded-full">
-                        Register
+                <li class="sm:inline ps-1 mb-0 hidden" v-else>
+                    <Link :href="route('login')"
+                          class="btn bg-cyan-600 hover:bg-cyan-700 border-cyan-600 dark:border-cyan-600 text-white rounded-full">
+                        Login
                     </Link>
                 </li>
             </ul>
@@ -113,9 +117,10 @@
 
 <script setup>
 
-import {Link} from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 import {ref, onMounted, onUnmounted, defineProps, computed} from 'vue';
 import feather from 'feather-icons';
+import DropdownLink from '@/Components/DropdownLink.vue';
 
 const menu = ref(true);
 const current = ref('');
@@ -138,7 +143,10 @@ const props = defineProps({
     },
 });
 
+const page = usePage();
+
 onMounted(() => {
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll', onscroll);
     scrollToTop();

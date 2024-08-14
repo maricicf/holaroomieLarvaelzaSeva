@@ -1,4 +1,5 @@
 <template>
+    <Head title="Login"/>
     <section class="md:h-screen py-36 flex items-center relative overflow-hidden zoom-image">
         <div
             class="absolute inset-0 image-wrap z-1 bg-[url('../../assets/images/bg/01.jpg')] bg-no-repeat bg-center bg-cover">
@@ -8,7 +9,7 @@
             <div class="flex justify-center">
                 <div
                     class="max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
-                    <Link :href="route('home')"><img src="/assets/images/logo-icon-64.png" class="mx-auto" alt="">
+                    <Link :href="route('home')"><img src="/assets/images/logo-icon-64.png" class="mx-auto w-24" alt="">
                     </Link>
                     <h5 class="my-6 text-xl font-semibold">Login</h5>
                     <form class="text-start" @submit.prevent="submitLoginForm">
@@ -33,7 +34,7 @@
                             <div class="flex justify-between mb-4">
                                 <div class="flex items-center mb-0">
                                     <input
-                                        class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-blue-600 focus:border-blue-300 focus:ring focus:ring-offset-0 focus:ring-blue-200 focus:ring-opacity-50 me-2"
+                                        class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-cyan-600 focus:border-cyan-300 focus:ring focus:ring-offset-0 focus:ring-cyan-200 focus:ring-opacity-50 me-2"
                                         type="checkbox" value="" id="RememberMe">
                                     <label class="form-checkbox-label text-slate-400" for="RememberMe">Remember
                                         me</label>
@@ -47,7 +48,7 @@
 
                             <div class="mb-4">
                                 <button type="submit"
-                                        class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">Login
+                                        class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md w-full">Login
                                 </button>
                             </div>
 
@@ -69,6 +70,7 @@
 <script setup>
 import {Link} from '@inertiajs/inertia-vue3';
 import {useForm} from '@inertiajs/vue3';
+import {Head} from '@inertiajs/vue3';
 
 const loginForm = useForm({
     email: '',
@@ -76,7 +78,6 @@ const loginForm = useForm({
 });
 
 const submitLoginForm = () => {
-    console.log(loginForm);
     loginForm.post('/login', {
         preserveScroll: true,
         onSuccess: () => {

@@ -4,7 +4,7 @@
 .form-input {
     @apply w-full py-2 px-3 border border-inherit dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200 rounded h-10 outline-none bg-transparent;
     &:focus {
-        @apply border-blue-600 shadow-none ring-0;
+        @apply border-cyan-600 shadow-none ring-0;
     }
     &.textarea {
         @apply h-28;
@@ -34,7 +34,7 @@
 }
 
 #success_page {
-    @apply bg-blue-600/5 text-blue-600;
+    @apply bg-cyan-600/5 text-cyan-600;
 }
 
 

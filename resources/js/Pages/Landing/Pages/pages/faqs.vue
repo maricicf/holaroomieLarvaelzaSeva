@@ -1,4 +1,5 @@
 <template>
+    <Head title="FAQs"/>
     <navbar :container="'container'" :logoLight=true :navLight="'nav-light justify-end'"/>
     <!-- Start Hero -->
     <section
@@ -21,7 +22,7 @@
     <!-- End Hero -->
     <section class="relative lg:py-24 py-16">
         <div class="container relative">
-            <faqs/>
+            <faqs :data="props.data"/>
         </div>
         <getintouch/>
     </section>
@@ -33,6 +34,15 @@ import navbar from '@/Components/navbar/navbar.vue';
 import faqs from '@/Components/faqs.vue';
 import getintouch from '@/Components/get-in-touch.vue';
 import footers from '@/Components/footers/footer.vue';
+import {onMounted} from 'vue';
+import {Head} from '@inertiajs/vue3';
+
+const props = defineProps({
+    data: {
+        type: Object,
+        required: true,
+    },
+});
 </script>
 
 <style lang="scss" scoped></style>

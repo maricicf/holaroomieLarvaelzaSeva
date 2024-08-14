@@ -25,14 +25,14 @@
               <li>
                 <ul class="text-md-start brokerage-form list-none">
                   <li class="font-medium"><label class="control-label">Total Value ($)</label></li>
-                  <li><span class="text-blue-600">$</span> <p class="inline-block h5 text-blue-600" id="amount-label">{{ sliderValue }}</p></li>
+                  <li><span class="text-cyan-600">$</span> <p class="inline-block h5 text-cyan-600" id="amount-label">{{ sliderValue }}</p></li>
                 </ul>
               </li>
 
               <li class="mt-2 mt-sm-0">
                 <ul class="text-md-end brokerage-form list-none">
                   <li class="font-medium"><label class="control-label">Brokerage Fee ($)</label></li>
-                  <li><span class="text-blue-600">$</span> <p class="inline-block h5 text-blue-600" id="saving-label">{{ brokerageFee }}</p></li>
+                  <li><span class="text-cyan-600">$</span> <p class="inline-block h5 text-cyan-600" id="saving-label">{{ brokerageFee }}</p></li>
                 </ul>
               </li>
             </ul>

@@ -9,11 +9,11 @@
     </div><!--end grid-->
 
     <div v-if="propertie" class="grid lg:grid-cols-2 grid-cols-1 gap-[30px] mt-8">
-        <div v-for="item in datas.slice(4, 12)" :key="item"
-            class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 w-full mx-auto">
+        <div v-for="item in props.properties" :key="item"
+             class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 w-full mx-auto">
             <div class="md:flex">
                 <div class="relative md:shrink-0">
-                    <img class="h-full w-full object-cover md:w-48" :src="item.image" alt="">
+                    <img class="h-full w-full object-cover md:w-48" :src="item.images[0].path" alt="">
                     <!-- <div class="absolute top-4 end-4">
                         <a href="javascript:void(0)"
                             class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i
@@ -22,24 +22,26 @@
                 </div>
                 <div class="p-6 w-full">
                     <div class="md:pb-4 pb-6">
-                        <Link :href="{ name: 'property-detail-two', params: { id: item.id } }"
-                            class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
-                            }}</Link>
+                        <Link :href="route('property-detail',item.id)"
+                              class="text-lg hover:text-cyan-600 font-medium ease-in-out duration-500">{{
+                                item.name
+                            }}
+                        </Link>
                     </div>
 
                     <ul class="md:py-4 py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
                         <li class="flex items-center me-4">
-                            <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
+                            <i class="uil uil-compress-arrows text-2xl me-2 text-cyan-600"></i>
                             <span>{{ item.sqf }}</span>
                         </li>
 
                         <li class="flex items-center me-4">
-                            <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
+                            <i class="uil uil-bed-double text-2xl me-2 text-cyan-600"></i>
                             <span>{{ item.beds }}</span>
                         </li>
 
                         <li class="flex items-center">
-                            <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
+                            <i class="uil uil-bath text-2xl me-2 text-cyan-600"></i>
                             <span>{{ item.baths }}</span>
                         </li>
                     </ul>
@@ -67,18 +69,19 @@
     <div v-if="moreview" class="md:flex justify-center text-center mt-6">
         <div class="md:w-full">
             <Link to="/list"
-                class="btn btn-link text-blue-600 hover:text-blue-600 after:bg-blue-600 transition duration-500">View
+                  class="btn btn-link text-cyan-600 hover:text-cyan-600 after:bg-cyan-600 transition duration-500">View
                 More Properties <i class="uil uil-arrow-right ms-1"></i></Link>
         </div>
     </div>
 
 
     <div v-else :class="grids">
-        <div v-for="item in datas" :key="item"
-            class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 w-full mx-auto">
+        <div v-for="item in props.properties" :key="item"
+             class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500 w-full mx-auto">
             <div class="md:flex">
                 <div class="relative md:shrink-0">
-                    <img class="h-full w-full object-cover" :class="width" :src="item.image" alt="">
+                    <img class="h-full w-full object-cover" :class="width"
+                         :src="'assets/images/property/'+item.images[0].path" alt="">
                     <!-- <div class="absolute top-4 end-4">
                         <a href="javascript:void(0)"
                             class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i
@@ -87,32 +90,31 @@
                 </div>
                 <div class="p-6 w-full">
                     <div class="md:pb-4 pb-6">
-                        <Link :href="{ name: 'property-detail-two', params: { id: item.id } }"
-                            class="text-lg hover:text-blue-600 font-medium ease-in-out duration-500">{{ item.name
-                            }}</Link>
+                        <Link :href="route('property-detail',item.id)"
+                              class="text-lg hover:text-cyan-600 font-medium ease-in-out duration-500">{{
+                                item.title
+                            }}
+                        </Link>
                     </div>
 
                     <ul class="md:py-4 py-6 border-y border-slate-100 dark:border-gray-800 flex items-center list-none">
-                        <li class="flex items-center me-4">
-                            <i class="uil uil-compress-arrows text-2xl me-2 text-blue-600"></i>
-                            <span>{{ item.sqf }}</span>
-                        </li>
-
-                        <li class="flex items-center me-4">
-                            <i class="uil uil-bed-double text-2xl me-2 text-blue-600"></i>
-                            <span>{{ item.beds }}</span>
-                        </li>
-
-                        <li class="flex items-center">
-                            <i class="uil uil-bath text-2xl me-2 text-blue-600"></i>
-                            <span>{{ item.baths }}</span>
-                        </li>
+                        <template v-for="specification in item.specifications">
+                            <li class="flex items-center me-4"
+                                v-if="specification.category.is_showcase"
+                            >
+                                <i class="uil text-2xl me-2 text-cyan-600"
+                                   :class="specification.category.icon"></i>
+                                <span class="lg:text-xl">{{ specification.name }}{{
+                                        specification.category.name == 'Size' ? 'm2' : ''
+                                    }}</span>
+                            </li>
+                        </template>
                     </ul>
 
                     <ul class="md:pt-4 pt-6 flex justify-between items-center list-none">
                         <li>
                             <span class="text-slate-400">Price</span>
-                            <p class="text-lg font-medium">{{ item.price }}</p>
+                            <p class="text-lg font-medium">{{ item.prices[0].price }}e</p>
                         </li>
 
                         <!-- <li>
@@ -132,30 +134,35 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
+import {ref, defineProps, onMounted} from 'vue';
+import {Link} from '@inertiajs/inertia-vue3';
 
 const props = defineProps({
     properties: {
-        type: Boolean,
-        required: true
+        type: Array,
+        required: true,
     },
     moreview: {
         type: Boolean,
-        required: true
+        required: false,
     },
     propertie: {
         type: Boolean,
-        required: true
+        required: false,
     },
     grids: {
         type: String,
-        required: true
+        required: false,
     },
     width: {
         type: String,
-        required: true
-    }
-})
+        required: false,
+    },
+});
+
+onMounted(() => {
+    console.log(props.properties);
+});
 
 const datas = ref([
     {
@@ -167,7 +174,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 2,
@@ -178,7 +185,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 3,
@@ -189,7 +196,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 4,
@@ -200,7 +207,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 5,
@@ -211,7 +218,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 6,
@@ -222,7 +229,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 7,
@@ -233,7 +240,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 8,
@@ -244,7 +251,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 9,
@@ -255,7 +262,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 10,
@@ -266,7 +273,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 11,
@@ -277,7 +284,7 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
     {
         id: 12,
@@ -288,9 +295,9 @@ const datas = ref([
         baths: '4 Baths',
         price: '$5000',
         rating: '5.0(30)',
-        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star']
+        star: ['mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star', 'mdi mdi-star'],
     },
-])
+]);
 </script>
 
 <style lang="scss" scoped></style>

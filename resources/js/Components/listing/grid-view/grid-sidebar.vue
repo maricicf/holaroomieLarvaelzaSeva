@@ -32,7 +32,7 @@
                                     </div>
 
                                     <div>
-                                        <input type="submit" class="btn bg-blue-600 hover:bg-blue-700 border-blue-600 hover:border-blue-700 text-white rounded-md w-full" value="Apply Filter">
+                                        <input type="submit" class="btn bg-cyan-600 hover:bg-cyan-700 border-cyan-600 hover:border-cyan-700 text-white rounded-md w-full" value="Apply Filter">
                                     </div>
                                 </div>
                             </form>

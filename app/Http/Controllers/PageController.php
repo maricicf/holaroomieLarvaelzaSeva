@@ -3,67 +3,68 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\Page\PageRepository;
+use App\Services\PageService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class PageController extends Controller {
 
-    protected $pageRepository;
+    protected PageService $pageService;
 
-    public function __construct(PageRepository $pageRepository) {
-        $this->pageRepository = $pageRepository;
+    public function __construct(PageService $pageService) {
+        $this->pageService = $pageService;
     }
 
     public function home() {
-        return Inertia::render('Landing/Pages/index/index');
+        return $this->pageService->home();
     }
 
     public function faq() {
-        return Inertia::render('Landing/Pages/pages/faqs');
+        return $this->pageService->faq();
     }
 
     public function packages() {
-        return Inertia::render('Landing/Pages/pages/packages');
+        return $this->pageService->packages();
     }
 
     public function rent() {
-        return Inertia::render('Landing/Pages/listing/rent');
+        return $this->pageService->rent();
     }
 
     public function propertyDetail($id) {
-        return Inertia::render('Landing/Pages/listing/property-detail', [
-            'id' => $id,
-        ]);
+        return $this->pageService->propertyDetail($id);
     }
 
     public function blog() {
-        return Inertia::render('Landing/Pages/pages/blog/blogs');
+        return $this->pageService->blog();
     }
 
     public function blogDetail($id) {
-        return Inertia::render('Landing/Pages/pages/blog/blog-detail', [
-            'id' => $id,
-        ]);
+        return $this->pageService->blogDetail($id);
     }
 
     public function contact() {
-        return Inertia::render('Landing/Pages/contact');
+        return $this->pageService->contact();
     }
 
     public function login() {
-        return Inertia::render('Landing/Pages/pages/auth-pages/auth-login');
+        return $this->pageService->login();
     }
 
     public function register() {
-        return Inertia::render('Landing/Pages/pages/auth-pages/auth-register');
-    }
-
-    public function rePassword() {
-        return Inertia::render('Landing/Pages/pages/auth-pages/auth-re-password');
+        return $this->pageService->register();
     }
 
     public function about() {
-        return Inertia::render('Landing/Pages/pages/aboutus');
+        return $this->pageService->about();
+    }
+
+    public function rePassword() {
+        return $this->pageService->rePassword();
+    }
+
+    public function profile() {
+        return $this->pageService->profile();
     }
 
 }

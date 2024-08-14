@@ -5,7 +5,7 @@
                 class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                 <img :src="item.image" alt="">
                 <div class="p-4">
-                    <a href="" class="text-xl font-medium hover:text-blue-600">{{ item.name }}</a>
+                    <a href="" class="text-xl font-medium hover:text-cyan-600">{{ item.name }}</a>
                     <p class="text-slate-400 text-sm mt-1">{{ item.listing }}</p>
                 </div>
             </div><!--end content-->
@@ -25,7 +25,7 @@
                 class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                 <img :src="item.image" alt="">
                 <div class="p-4">
-                    <a href="" class="text-xl font-medium hover:text-blue-600">{{ item.name }}</a>
+                    <a href="" class="text-xl font-medium hover:text-cyan-600">{{ item.name }}</a>
                     <p class="text-slate-400 text-sm mt-1">{{ item.listing }}</p>
                 </div>
             </div><!--end content-->

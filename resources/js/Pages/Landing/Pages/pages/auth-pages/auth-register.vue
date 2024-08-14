@@ -1,4 +1,5 @@
 <template>
+    <Head title="Register"/>
     <!-- Loader End -->
     <section class="md:h-screen py-36 flex items-center relative overflow-hidden zoom-image">
         <div
@@ -8,7 +9,7 @@
             <div class="flex justify-center">
                 <div
                     class="max-w-[600px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
-                    <Link href="/"><img src="/assets/images/logo-icon-64.png" class="mx-auto" alt=""></Link>
+                    <Link href="/"><img src="/assets/images/logo-icon-64.png" class="mx-auto w-24" alt=""></Link>
                     <h5 class="my-6 text-xl font-semibold">Register</h5>
                     <form @submit.prevent="submitForm" class="text-start">
                         <div class="grid grid-cols-1">
@@ -80,10 +81,10 @@
                             <div class="mb-4">
                                 <div class="flex items-center mb-0">
                                     <input v-model="form.acceptTnC"
-                                           class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-blue-600 focus:border-blue-300 focus:ring focus:ring-offset-0 focus:ring-blue-200 focus:ring-opacity-50 me-2"
+                                           class="form-checkbox rounded border-gray-200 dark:border-gray-800 text-cyan-600 focus:border-cyan-300 focus:ring focus:ring-offset-0 focus:ring-cyan-200 focus:ring-opacity-50 me-2"
                                            type="checkbox" value="" id="AcceptT&C">
                                     <label class="form-check-label text-slate-400" for="AcceptT&C">I Accept <a href=""
-                                                                                                               class="text-blue-600">Terms
+                                                                                                               class="text-cyan-600">Terms
                                         And Condition</a></label>
                                     <div v-if="form.errors.acceptTnC" class="text-red-500">{{
                                             form.errors.acceptTnC
@@ -93,7 +94,7 @@
                             </div>
                             <div class="mb-4">
                                 <button type="submit"
-                                        class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md w-full">
+                                        class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md w-full">
                                     Register
                                 </button>
                             </div>
@@ -101,7 +102,7 @@
                                 <span class="text-slate-400 me-2">Already have an account ? </span>
                                 <Link :href="route('login')" class="text-black dark:text-white font-bold">Login</Link>
                             </div>
-                            <div v-if="successMessage" class="text-blue-500 text-center">{{ successMessage }}</div>
+                            <div v-if="successMessage" class="text-cyan-500 text-center">{{ successMessage }}</div>
                         </div>
                     </form>
                 </div>
@@ -112,7 +113,7 @@
 <script setup>
 import {ref} from 'vue';
 import axios from 'axios';
-import {Link, useForm} from '@inertiajs/vue3';
+import {Link, useForm} from '@inertiajs/vue3';import {Head} from '@inertiajs/vue3';
 
 const form = useForm({
     first_name: '',

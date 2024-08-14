@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <button type="submit" id="submit" name="send"
-                                class="btn bg-blue-600 hover:bg-blue-700 text-white rounded-md">Send Message</button>
+                                class="btn bg-cyan-600 hover:bg-cyan-700 text-white rounded-md">Send Message</button>
                         </form>
                     </div>
                 </div>
@@ -52,9 +52,9 @@
 
             <div v-for="item in datas" :key="item" class="text-center px-6">
                 <div class="relative overflow-hidden text-transparent -m-3">
-                    <i data-feather="hexagon" class="size-32 fill-blue-600/5 mx-auto"></i>
+                    <i data-feather="hexagon" class="size-32 fill-cyan-600/5 mx-auto"></i>
                     <div
-                        class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-blue-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
+                        class="absolute top-2/4 -translate-y-2/4 start-0 end-0 mx-auto text-cyan-600 rounded-xl transition-all duration-500 ease-in-out text-4xl flex align-middle justify-center items-center">
                         <i :class="item.icon"></i>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="mt-5">
                         <a :href="item.link"
                             data-type="iframe"
-                            class="video-play-icon read-more lightbox btn btn-link text-blue-600 hover:text-blue-600 after:bg-blue-600 transition duration-500">{{item.title}}</a>
+                            class="video-play-icon read-more lightbox btn btn-link text-cyan-600 hover:text-cyan-600 after:bg-cyan-600 transition duration-500">{{item.title}}</a>
                     </div>
                 </div>
             </div>
