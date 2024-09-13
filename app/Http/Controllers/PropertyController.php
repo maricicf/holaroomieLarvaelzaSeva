@@ -17,4 +17,12 @@ class PropertyController extends Controller {
         return $this->propertyService->create($request->all());
     }
 
+    public function store(Request $request) {
+        return $this->propertyService->store($request->all());
+    }
+
+    public function delete($id) {
+        return $this->propertyService->delete($id);
+    }
+
 }

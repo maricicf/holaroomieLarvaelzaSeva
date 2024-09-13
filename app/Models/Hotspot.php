@@ -12,7 +12,9 @@ class Hotspot extends Model {
     use HasFactory;
 
     public function properties(): BelongsToMany {
-        return $this->BelongsToMany(Property::class, 'property_hotspot');
+        return $this->BelongsToMany(Property::class, 'property_hotspot')
+            ->withPivot('minutes')
+            ->withTimestamps();
     }
 
 }

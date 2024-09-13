@@ -60,4 +60,15 @@ class PageRepository implements IPageRepository {
         // TODO: Implement getRePasswordPageData() method.
     }
 
+    public function getProfilePageData() {
+        $user = auth()
+            ->user()
+            ->with('reservations')
+            ->with('reservations.property')
+            ->with('reservations.property.images')
+            ->first();
+
+        return $user;
+    }
+
 }

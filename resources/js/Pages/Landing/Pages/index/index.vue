@@ -5,7 +5,7 @@
     <!-- Hero Start -->
     <section class="relative table w-full py-36 lg:py-44 overflow-hidden zoom-image">
         <div
-            class="absolute inset-0 image-wrap z-1 bg-[url('/assets/images/bg/04.jpg')] bg-no-repeat bg-center bg-cover">
+            class=" inset-0 image-wrap z-1 bg-[url('/assets/images/bg/04.jpg')] bg-no-repeat bg-center bg-cover">
         </div>
         <div class="absolute inset-0 bg-black/70 z-2"></div>
         <div class="container relative z-3">
@@ -22,7 +22,7 @@
         </div><!--end container-->
     </section><!--end section-->
     <!-- Hero End -->
-    <section class="relative lg:py-24 py-16">
+    <section class="relative lg:py-24 py-16" style="margin-top: 100vh;">
         <div class="container relative">
             <transpatency :transparency="true"/>
         </div>

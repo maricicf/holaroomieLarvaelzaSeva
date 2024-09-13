@@ -54,6 +54,10 @@ return new class extends Migration {
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->foreign('apartment_id')
+                ->references('id')
+                ->on('properties') // Referenced table
+                ->onDelete('set null');
         });
 
         Schema::table('prices', function(Blueprint $table) {

@@ -35,4 +35,8 @@ class UserController extends Controller {
         return $this->userService->create($request->all());
     }
 
+    public function update(Request $request) {
+        return $this->userService->update(1, $request->all());
+    }
+
 }

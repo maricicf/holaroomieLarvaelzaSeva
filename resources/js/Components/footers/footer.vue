@@ -54,18 +54,22 @@
                             <div class="lg:col-span-2 md:col-span-4">
                                 <h5 class="tracking-[1px] text-gray-100 font-semibold">How it works</h5>
                                 <ul class="list-none footer-list mt-6">
-                                    <li v-for="item in company" :key="item" class="mt-[10px] first:mt-0"><Link
+                                    <li v-for="item in company" :key="item" class="mt-[10px] first:mt-0">
+                                        <Link
                                             :href="item.link"
                                             class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                                class="uil uil-angle-right-b me-1"></i> {{ item.name }}</Link>
+                                            class="uil uil-angle-right-b me-1"></i> {{ item.name }}
+                                        </Link>
                                     </li>
                                 </ul>
                                 <h5 class="tracking-[1px] text-gray-100 font-semibold mt-4">Services</h5>
                                 <ul class="list-none footer-list mt-6">
-                                    <li v-for="item in services" :key="item" class="mt-[10px] first:mt-0"><Link
+                                    <li v-for="item in services" :key="item" class="mt-[10px] first:mt-0">
+                                        <Link
                                             :href="item.link"
                                             class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                                class="uil uil-angle-right-b me-1"></i> {{ item.name }}</Link>
+                                            class="uil uil-angle-right-b me-1"></i> {{ item.name }}
+                                        </Link>
                                     </li>
                                 </ul>
                             </div><!--end col-->
@@ -73,10 +77,12 @@
                             <div class="lg:col-span-3 md:col-span-4">
                                 <h5 class="tracking-[1px] text-gray-100 font-semibold">Usefull Links</h5>
                                 <ul class="list-none footer-list mt-6">
-                                    <li v-for="item in usefulls" :key="item" class="mt-[10px] first:mt-0"><Link
+                                    <li v-for="item in usefulls" :key="item" class="mt-[10px] first:mt-0">
+                                        <Link
                                             :href="item.link"
                                             class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out"><i
-                                                class="uil uil-angle-right-b me-1"></i> {{ item.name }}</Link>
+                                            class="uil uil-angle-right-b me-1"></i> {{ item.name }}
+                                        </Link>
                                     </li>
                                 </ul>
                             </div><!--end col-->
@@ -91,8 +97,8 @@
                                         <h6 class="text-gray-300 mb-2">C/54 Northwest Freeway, <br> Suite 558, <br>
                                             Houston, USA 485</h6>
                                         <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39206.002432144705!2d-95.4973981212445!3d29.709510002925988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c16de81f3ca5%3A0xf43e0b60ae539ac9!2sGerald+D.+Hines+Waterwall+Park!5e0!3m2!1sen!2sin!4v1566305861440!5m2!1sen!2sin"
-                                            data-type="iframe"
-                                            class="text-cyan-600 hover:text-cyan-700 duration-500 ease-in-out lightbox">View
+                                           data-type="iframe"
+                                           class="text-cyan-600 hover:text-cyan-700 duration-500 ease-in-out lightbox">View
                                             on Google map</a>
                                     </div>
                                 </div>
@@ -101,7 +107,7 @@
                                     <i data-feather="mail" class="size-5 text-cyan-600 me-3"></i>
                                     <div class="">
                                         <a href="mailto:contact@example.com"
-                                            class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">contact@example.com</a>
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">contact@example.com</a>
                                     </div>
                                 </div>
 
@@ -109,7 +115,7 @@
                                     <i data-feather="phone" class="size-5 text-cyan-600 me-3"></i>
                                     <div class="">
                                         <a href="tel:+152534-468-854"
-                                            class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">+152
+                                           class="text-slate-300 hover:text-slate-400 duration-500 ease-in-out">+152
                                             534-468-854</a>
                                     </div>
                                 </div>
@@ -133,7 +139,7 @@
 
                     <ul class="list-none md:text-end text-center">
                         <li v-for="item in social" :key="item" class="inline me-1"><a :href="item.link" target="_blank"
-                                class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-cyan-600 dark:hover:border-cyan-600 hover:bg-cyan-600 dark:hover:bg-cyan-600">
+                                                                                      class="btn btn-icon btn-sm text-gray-400 hover:text-white border border-gray-800 dark:border-gray-700 rounded-md hover:border-cyan-600 dark:hover:border-cyan-600 hover:bg-cyan-600 dark:hover:bg-cyan-600">
                             <i :data-feather="item.icon" :class="item.class"></i></a></li>
                     </ul><!--end icon-->
                 </div><!--end grid-->
@@ -144,73 +150,49 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {ref} from 'vue';
 import {Link} from '@inertiajs/vue3';
-const date = ref(new Date().getFullYear())
+
+const date = ref(new Date().getFullYear());
 
 const social = ref([
-
-    {
-        class: 'size-4',
-        icon: 'shopping-cart',
-        link: 'https://1.envato.market/hously-vue'
-    },
-    {
-        class: 'size-4',
-        icon: 'dribbble',
-        link: 'https://dribbble.com/shreethemes'
-    },
-    {
-        class: 'uil uil-behance align-baseline',
-        link: 'https://www.behance.net/shreethemes'
-    },
-    {
-        class: 'size-4',
-        icon: 'linkedin',
-        link: 'http://linkedin.com/company/shreethemes'
-    },
     {
         class: 'size-4',
         icon: 'facebook',
-        link: 'https://www.facebook.com/shreethemes'
+        link: 'https://www.facebook.com/holaroomievlc',
     },
     {
         class: 'size-4',
         icon: 'instagram',
-        link: 'https://www.instagram.com/shreethemes/'
+        link: 'https://www.instagram.com/holaroomie_vlc/',
     },
     {
         class: 'size-4',
-        icon: 'twitter',
-        link: 'https://twitter.com/shreethemes'
+        icon: 'tiktok',
+        link: 'https://www.tiktok.com/@holaroomie.vlc',
     },
     {
         class: 'size-4',
         icon: 'mail',
-        link: 'mailto:support@shreethemes.in'
+        link: 'mailto:oficina.soyerasmus@gmail.com',
     },
-    {
-        class: 'size-4',
-        icon: 'file-text',
-        link: 'https://forms.gle/QkTueCikDGqJnbky9'
-    }
-])
+]);
 
 const company = ref([
     {
         link: '/aboutus',
-        name: 'About us'
+        name: 'About us',
     },
     {
         link: '/packages',
-        name: 'Packages'
+        name: 'Packages',
     },
 
     {
         link: '/faqs',
-        name: 'FAQs'
+        name: 'FAQs',
     },
-])
+]);
 const services = ref([
 
     {
@@ -222,7 +204,7 @@ const services = ref([
         name: 'Privacy Policy',
     },
 
-])
+]);
 const usefulls = ref([
 
     {
@@ -245,7 +227,7 @@ const usefulls = ref([
         link: '/auth-register',
         name: 'Register',
     },
-])
+]);
 </script>
 
 <style lang="scss" scoped></style>

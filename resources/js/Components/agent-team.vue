@@ -10,14 +10,14 @@
                 <ul
                     class="list-none absolute start-0 end-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
                     <li v-for="social in item.social" :key="social" class="inline me-1"><a href=""
-                            class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
+                            class="btn btn-icon btn-sm rounded-full border border-cyan-600 bg-cyan-600 hover:border-cyan-600 hover:bg-cyan-600 text-white"><i
                                 :data-feather="social" class="size-4"></i></a></li>
                 </ul><!--end icon-->
             </div>
 
             <div class="content mt-3">
                 <router-link :to="{name: 'agent-profile', params: {id: item.id}}"
-                    class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">{{
+                    class="text-xl font-medium hover:text-cyan-600 transition-all duration-500 ease-in-out">{{
                     item.name }}</router-link>
                 <p class="text-slate-400">{{ item.type }}</p>
             </div>
@@ -35,14 +35,14 @@
                 <ul
                     class="list-none absolute start-0 end-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
                     <li v-for="social in item.social" :key="social" class="inline me-1"><a href=""
-                            class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
+                            class="btn btn-icon btn-sm rounded-full border border-cyan-600 bg-cyan-600 hover:border-cyan-600 hover:bg-cyan-600 text-white"><i
                                 :data-feather="social" class="size-4"></i></a></li>
                 </ul><!--end icon-->
             </div>
 
             <div class="content mt-3">
                 <router-link :to="{name: 'agent-profile', params: {id: item.id}}"
-                    class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">{{
+                    class="text-xl font-medium hover:text-cyan-600 transition-all duration-500 ease-in-out">{{
                     item.name }}</router-link>
                 <p class="text-slate-400">{{ item.type }}</p>
             </div>
@@ -71,14 +71,14 @@
                         <ul
                             class="list-none absolute start-0 end-0 -bottom-20 group-hover:bottom-5 transition-all duration-500 ease-in-out">
                             <li v-for="social in item.social" :key="social" class="inline me-1"><a href=""
-                                    class="btn btn-icon btn-sm rounded-full border border-green-600 bg-green-600 hover:border-green-600 hover:bg-green-600 text-white"><i
+                                    class="btn btn-icon btn-sm rounded-full border border-cyan-600 bg-cyan-600 hover:border-cyan-600 hover:bg-cyan-600 text-white"><i
                                         :data-feather="social" class="size-4"></i></a></li>
                         </ul><!--end icon-->
                     </div>
 
                     <div class="content mt-3">
                         <router-link :to="{name: 'agent-profile', params: {id: item.id}}"
-                            class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out">{{
+                            class="text-xl font-medium hover:text-cyan-600 transition-all duration-500 ease-in-out">{{
                     item.name }}</router-link>
                         <p class="text-slate-400">{{ item.type }}</p>
                     </div>

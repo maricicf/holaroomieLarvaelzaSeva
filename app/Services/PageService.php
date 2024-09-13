@@ -2,6 +2,10 @@
 
 namespace App\Services;
 
+use App\Models\Area;
+use App\Models\City;
+use App\Models\SpecificationCategory;
+use App\Repositories\Blog\BlogRepository;
 use App\Repositories\Page\PageRepository;
 use Inertia\Inertia;
 
@@ -9,14 +13,18 @@ class PageService {
 
     protected PageRepository $pageRepository;
 
+    protected BlogRepository $blogRepository;
+
     protected PropertyService $propertyService;
 
     public function __construct(
         PageRepository $pageRepository,
-        PropertyService $propertyService
+        PropertyService $propertyService,
+        BlogRepository $blogRepository
     ) {
         $this->pageRepository = $pageRepository;
         $this->propertyService = $propertyService;
+        $this->blogRepository = $blogRepository;
     }
 
     public function home() {
@@ -40,15 +48,20 @@ class PageService {
         return Inertia::render('Landing/Pages/pages/packages');
     }
 
-    public function rent() {
-        $params = [
-            'paginate' => 10,
-        ];
-
+    public function rent($params) {
+        $params['paginate'] = 10;
         $properties = $this->propertyService->all($params);
+        //        dd($params);
+        $specificationCategories = SpecificationCategory::with('specifications')
+            ->get();
+        $areas = Area::all();
+        $cities = City::all();
 
         return Inertia::render('Landing/Pages/listing/rent', [
             'properties' => $properties,
+            'specificationCategories' => $specificationCategories,
+            'areas' => $areas,
+            'cities' => $cities,
         ]);
     }
 
@@ -66,12 +79,18 @@ class PageService {
     }
 
     public function blog() {
-        return Inertia::render('Landing/Pages/pages/blog/blogs');
+        $blogs = $this->blogRepository->all();
+        return Inertia::render('Landing/Pages/pages/blog/blogs', [
+            'blogs' => $blogs,
+        ]);
     }
 
     public function blogDetail($id) {
+        $blog = $this->blogRepository->find($id);
+
         return Inertia::render('Landing/Pages/pages/blog/blog-detail', [
             'id' => $id,
+            'data' => $blog,
         ]);
     }
 
@@ -96,7 +115,11 @@ class PageService {
     }
 
     public function profile() {
-        return Inertia::render('Landing/Pages/pages/agents/agent-profile');
+        $user = $this->pageRepository->getProfilePageData();
+
+        return Inertia::render('Landing/Pages/pages/agents/agent-profile', [
+            'user' => $user,
+        ]);
     }
 
 }

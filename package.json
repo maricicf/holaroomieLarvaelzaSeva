@@ -9,6 +9,7 @@
         "@inertiajs/vue3": "^1.0.0",
         "@tailwindcss/forms": "^0.5.3",
         "@tsparticles/vue3": "^3.0.1",
+        "@types/leaflet": "^1.9.12",
         "@vitejs/plugin-vue": "^5.0.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.6.4",
@@ -19,17 +20,30 @@
         "sass": "^1.77.1",
         "sass-embedded": "^1.77.8",
         "sass-loader": "^14.2.1",
+        "simplebar": "^6.2.6",
         "swiper": "^11.1.3",
         "tailwindcss": "^3.2.1",
         "tiny-slider": "^2.9.4",
+        "v-click-outside": "^3.2.0",
         "vite": "^5.0",
         "vue": "^3.4.0",
         "vue-countup-v3": "^1.4.1",
         "vue-easy-lightbox": "^1.19.0",
         "vue-select": "^4.0.0-beta.6",
-        "vue-typewriter-effect": "^1.0.1"
+        "vue-typewriter-effect": "^1.0.1",
+        "vue3-apexcharts": "^1.5.2"
     },
     "dependencies": {
-        "@inertiajs/inertia-vue3": "^0.6.0"
+        "@headlessui/vue": "^1.7.22",
+        "@inertiajs/inertia-vue3": "^0.6.0",
+        "@popperjs/core": "^2.11.8",
+        "@tinymce/tinymce-vue": "^4.0.7",
+        "@tiptap/pm": "^2.6.6",
+        "@tiptap/starter-kit": "^2.6.6",
+        "@tiptap/vue-3": "^2.6.6",
+        "@vueform/slider": "^2.1.10",
+        "@vueuse/core": "^11.0.0",
+        "leaflet": "^1.9.4",
+        "v-calendar": "^3.1.2"
     }
 }

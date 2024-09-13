@@ -13,6 +13,11 @@
 //// structure
 @import "custom/structure/topnav";
 @import "custom/structure/footer";
+
+
+// structure
+@import "custom/structure/admin/topnav";
+@import "custom/structure/admin/footer";
 //
 //// pages
 @import "custom/pages/helper";
@@ -22,3 +27,18 @@
 @import "custom/pages/countdown";
 @import "custom/pages/swiper-slider";
 @import "custom/pages/contact";
+
+// admin
+@import "custom/pages/portfolio";
+
+// Plugins
+@import "custom/plugins/testi";
+@import "custom/plugins/calendar";
+@import "custom/plugins/ckeditor";
+@import "custom/plugins/apexchart";
+
+:root {
+    --slider-connect-bg: #418FAF;
+    --slider-tooltip-bg: #418FAF;
+    --slider-handle-ring-color: #3B82F630;
+}

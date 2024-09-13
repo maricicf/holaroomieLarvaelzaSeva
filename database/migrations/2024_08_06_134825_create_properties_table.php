@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('area_id');
             $table->foreignId('address_id');
             $table->foreignId('user_id');
+            $table->unsignedBigInteger('apartment_id')->default(null)->nullable();
             $table->timestamps();
         });
     }

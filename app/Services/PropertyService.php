@@ -21,7 +21,17 @@ class PropertyService {
     }
 
     public function create($data) {
-        return $this->propertyRepository->create($data);
+        $this->propertyRepository->create($data);
+        return redirect()
+            ->route('admin.properties')
+            ->with('success', 'Property created successfully');
+    }
+
+    public function delete($id) {
+        $this->propertyRepository->delete($id);
+        return redirect()
+            ->route('admin.properties')
+            ->with('success', 'Property deleted successfully');
     }
 
 }

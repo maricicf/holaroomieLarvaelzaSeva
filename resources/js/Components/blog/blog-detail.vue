@@ -6,15 +6,15 @@
         <div class="container relative">
             <div class="grid grid-cols-1 text-center mt-10">
                 <h3 class="md:text-3xl text-2xl md:leading-snug tracking-wide leading-snug font-medium text-white mb-3">
-                    {{ data?.title ? data?.title : 'Skills That You Can Learn In The Real Estate Market' }}</h3>
+                    {{
+                        props.data.title
+                    }}</h3>
 
                 <ul class="list-none mt-6">
-                    <li class="inline-block text-white/50 mx-5"> <span class="text-white block">Author :</span> <span
-                            class="block">Calvin Carlo</span></li>
-                    <li class="inline-block text-white/50 mx-5"> <span class="text-white block">Date :</span> <span
-                            class="block">{{ data?.date ? data?.date : '3rd March, 2023' }}</span></li>
-                    <li class="inline-block text-white/50 mx-5"> <span class="text-white block">Time :</span> <span
-                            class="block">{{ data?.time ? data?.time : '8 Min Read' }}</span></li>
+                    <li class="inline-block text-white/50 mx-5"><span class="text-white block">Date :</span> <span
+                        class="block">{{
+                            new Date(props.data.created_at).toDateString()
+                        }}</span></li>
                 </ul>
             </div><!--end grid-->
         </div><!--end container-->
@@ -35,22 +35,10 @@
                 <div class="lg:col-span-8 md:order-1 order-2">
                     <div class="relative overflow-hidden rounded-xl shadow dark:shadow-gray-800">
 
-                        <img :src="data?.image ? data?.image : image" alt="">
+                        <img :src="'/assets/images/blogs/' + props.data.image" alt="blog image">
 
-                        <div class="p-6">
-                            <p class="text-slate-400">The most well-known dummy text is the 'Lorem Ipsum', which is said
-                                to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin
-                                language which more or less corresponds to 'proper' Latin. It contains a series of real
-                                Latin words. This ancient dummy text is also incomprehensible, but it imitates the
-                                rhythm of most European languages in Latin script.</p>
-                            <p
-                                class="text-slate-400 italic border-x-4 border-cyan-600 rounded-ss-xl rounded-ee-xl mt-3 p-3">
-                                " There are many variations of passages of Lorem Ipsum available, but the majority have
-                                suffered alteration in some form, by injected humour, or randomised words which don't
-                                look even slightly believable. "</p>
-                            <p class="text-slate-400 mt-3">The advantage of its Latin origin and the relative
-                                meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or
-                                distract the viewer's attention from the layout.</p>
+                        <div class="p-6" v-html="props.data.content">
+
                         </div>
                     </div>
 
@@ -108,12 +96,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import image from '../../assets/images/property/9.jpg'
+import {ref, onMounted} from 'vue';
 
-const id = ref('')
-const data = ref('')
+const props = defineProps({
+    data: {
+        type: Object,
+        required: true,
+    },
+});
 
+const id = ref('');
+const data = ref('');
 
 const datas = ref([
     {
@@ -122,7 +115,7 @@ const datas = ref([
         category: 'Residential',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: 'Skills That You Can Learn In The Real Estate Market'
+        title: 'Skills That You Can Learn In The Real Estate Market',
     },
     {
         id: 2,
@@ -130,7 +123,7 @@ const datas = ref([
         category: 'Land',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: 'Learn The Truth About Real Estate Industry'
+        title: 'Learn The Truth About Real Estate Industry',
     },
     {
         id: 3,
@@ -138,7 +131,7 @@ const datas = ref([
         category: 'Commercial',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: '10 Quick Tips About Business Development'
+        title: '10 Quick Tips About Business Development',
     },
     {
         id: 4,
@@ -146,7 +139,7 @@ const datas = ref([
         category: 'Industrial',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: '14 Common Misconceptions About Business Development'
+        title: '14 Common Misconceptions About Business Development',
     },
     {
         id: 5,
@@ -154,7 +147,7 @@ const datas = ref([
         category: 'Investment',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: '10 Things Your Competitors Can Teach You About Real Estate'
+        title: '10 Things Your Competitors Can Teach You About Real Estate',
     },
     {
         id: 6,
@@ -162,7 +155,7 @@ const datas = ref([
         category: 'Residential',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: 'Why We Love Real Estate'
+        title: 'Why We Love Real Estate',
     },
     {
         id: 7,
@@ -170,7 +163,7 @@ const datas = ref([
         category: 'Land',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: '110 Quick Tips About Real Estate'
+        title: '110 Quick Tips About Real Estate',
     },
     {
         id: 8,
@@ -178,7 +171,7 @@ const datas = ref([
         category: 'Commercial',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: '15 Best Blogs To Follow About Real Estate'
+        title: '15 Best Blogs To Follow About Real Estate',
     },
     {
         id: 9,
@@ -186,9 +179,9 @@ const datas = ref([
         category: 'Industrial',
         date: '3rd March, 2023',
         time: '5 min read',
-        title: 'Using Banner Stands To Increase Trade Show Traffic'
+        title: 'Using Banner Stands To Increase Trade Show Traffic',
     },
-])
+]);
 
 </script>
 

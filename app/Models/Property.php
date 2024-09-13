@@ -8,10 +8,28 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Property extends Model {
 
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    public function getLatestPrices($property) {
+        $priceCategories = PriceCategory::all();
+
+        $latestPriceArray = [];
+        foreach ($priceCategories as $priceCategory) {
+            $latestPrice = $property->prices()
+                ->with('category')
+                ->where('price_category_id', $priceCategory->id)
+                ->latest()
+                ->first();
+
+            $latestPriceArray[] = $latestPrice;
+        }
+
+        return $latestPriceArray;
+    }
 
     // Define the polymorphic relationship
     public function images(): MorphMany {
@@ -35,15 +53,17 @@ class Property extends Model {
     }
 
     public function apartment(): BelongsTo {
-        return $this->belongsTo(Property::class);
+        return $this->belongsTo(Property::class, 'apartment_id');
     }
 
     public function rooms(): HasMany {
-        return $this->hasMany(Property::class);
+        return $this->hasMany(Property::class, 'apartment_id');
     }
 
     public function hotspots(): BelongsToMany {
-        return $this->BelongsToMany(Hotspot::class, 'property_hotspot');
+        return $this->BelongsToMany(Hotspot::class, 'property_hotspot')
+            ->withPivot('minutes')
+            ->withTimestamps();
     }
 
     public function specifications(): BelongsToMany {

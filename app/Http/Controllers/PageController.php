@@ -27,8 +27,8 @@ class PageController extends Controller {
         return $this->pageService->packages();
     }
 
-    public function rent() {
-        return $this->pageService->rent();
+    public function rent(Request $request) {
+        return $this->pageService->rent($request->all());
     }
 
     public function propertyDetail($id) {
